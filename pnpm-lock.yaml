@@ -123,6 +123,15 @@ importers:
 
   apps/cli:
     dependencies:
+      '@buddhilive/bah-client-ui-brand':
+        specifier: workspace:^
+        version: link:../../packages/client/ui-brand-buddhi
+      '@buddhilive/bah-llm-buddhi':
+        specifier: workspace:^
+        version: link:../../packages/llm/llm-buddhi
+      '@buddhilive/bah-web-search-searxng':
+        specifier: workspace:^
+        version: link:../../packages/web/web-search-searxng
       '@deepseek-ai/cordis':
         specifier: workspace:^
         version: link:../../vendor/cordis
@@ -7259,7 +7268,7 @@ importers:
 
   packages/sdk/client:
     dependencies:
-      '@deepseek-ai/dsh':
+      buddhi-ai:
         specifier: workspace:*
         version: link:../../../apps/cli
     devDependencies:
@@ -10518,9 +10527,6 @@ importers:
       '@deepseek-ai/cosmokit':
         specifier: link:../../vendor/cosmokit
         version: link:../../vendor/cosmokit
-      '@deepseek-ai/dsh':
-        specifier: workspace:^
-        version: link:../../apps/cli
       '@deepseek-ai/dsh-acp':
         specifier: workspace:^
         version: link:../../packages/acp/acp
@@ -10875,6 +10881,9 @@ importers:
       '@deepseek-ai/schemastery':
         specifier: link:../../vendor/schemastery
         version: link:../../vendor/schemastery
+      buddhi-ai:
+        specifier: workspace:^
+        version: link:../../apps/cli
 
   vendor/cordis:
     dependencies:

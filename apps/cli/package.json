@@ -30,6 +30,9 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@buddhilive/bah-client-ui-brand": "workspace:^",
+    "@buddhilive/bah-llm-buddhi": "workspace:^",
+    "@buddhilive/bah-web-search-searxng": "workspace:^",
     "@deepseek-ai/cordis": "workspace:^",
     "@deepseek-ai/cordis-plugin-hmr": "workspace:^",
     "@deepseek-ai/cordis-plugin-include": "workspace:^",

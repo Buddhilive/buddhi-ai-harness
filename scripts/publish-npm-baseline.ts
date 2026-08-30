@@ -454,7 +454,9 @@ class InstalledBundleSmoke {
         `--registry=${this.bundle.manifest.registry}`,
       ], consumerRoot, npmClientEnvironment())
 
-      const bin = resolve(consumerRoot, 'node_modules/@deepseek-ai/dsh/lib/bin.js')
+      const bin = existsSync(resolve(consumerRoot, 'node_modules/buddhi-ai/lib/bin.js'))
+        ? resolve(consumerRoot, 'node_modules/buddhi-ai/lib/bin.js')
+        : resolve(consumerRoot, 'node_modules/@deepseek-ai/dsh/lib/bin.js')
       assertPathWithin(consumerRoot, bin, 'installed dsh bin')
       const environment = installedArtifactEnvironment(consumerRoot)
       const version = this.runner.capture(

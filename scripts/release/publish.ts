@@ -65,13 +65,25 @@ function integrityOf(tarball: string): string {
 }
 
 /**
+ * Compute the npm command-line flags required to authenticate against the registry.
+ * Explicit token takes precedence, followed by NODE_AUTH_TOKEN and NPM_TOKEN.
+ * @param token - optional explicit token.
+ * @returns Argument array for npm.
+ */
+function authArguments(token?: string): string[] {
+  const authToken = token ?? process.env.NODE_AUTH_TOKEN ?? process.env.NPM_TOKEN
+  return authToken ? [`--//registry.npmjs.org/:_authToken=${authToken}`] : []
+}
+
+/**
  * Ask the registry whether a version exists, and with what integrity.
  * @param name - package name.
  * @param version - package version.
+ * @param token - optional explicit auth token.
  * @returns The registry state for that version.
  */
-function registryState(name: string, version: string): RegistryState {
-  const result = attempt('npm', ['view', `${name}@${version}`, 'dist.integrity', '--json'])
+function registryState(name: string, version: string, token?: string): RegistryState {
+  const result = attempt('npm', ['view', `${name}@${version}`, 'dist.integrity', '--json', ...authArguments(token)])
   if (result.status !== 0) {
     const output = `${result.stdout}${result.stderr}`
     if (output.includes('E404') || output.includes('404 Not Found')) return { kind: 'absent' }
@@ -94,24 +106,30 @@ function registryState(name: string, version: string): RegistryState {
  * @param name - package name the tarball declares.
  * @param version - package version the tarball declares.
  * @param distTag - explicit npm dist-tag, or undefined for npm's `latest` default.
+ * @param otp - optional one-time password.
+ * @param token - optional explicit auth token.
  */
 async function publishTarball(
   tarball: string,
   name: string,
   version: string,
   distTag: string | undefined,
+  otp?: string,
+  token?: string,
 ): Promise<void> {
   const tagArgs = distTag === undefined ? [] : ['--tag', distTag]
+  const otpArgs = otp === undefined ? [] : ['--otp', otp]
+  const authArgs = authArguments(token)
   for (let tries = 1; tries <= PUBLISH_ATTEMPTS; tries += 1) {
     // No --access: the sequences do not share one access level, so a
     // command-line flag could not serve both and would override the manifest
     // that does. Each packed manifest decides, and
     // check-workspace-constraints holds every manifest to its sequence's level.
-    const result = attemptEchoed('npm', ['publish', tarball, ...tagArgs])
+    const result = attemptEchoed('npm', ['publish', tarball, ...tagArgs, ...otpArgs, ...authArgs])
     const output = `${result.stdout}${result.stderr}`
     if (result.status === 0) return
 
-    const settled = registryState(name, version)
+    const settled = registryState(name, version, token)
     if (settled.kind === 'present' && settled.integrity === integrityOf(tarball)) {
       console.log(`release publish: ${name}@${version} landed despite a reported failure, continuing`)
       return
@@ -128,14 +146,30 @@ async function publishTarball(
   }
 }
 
+/**
+ * Return whether the package is owned by the Buddhi distribution and should be published.
+ * Upstream @deepseek-ai packages are maintained and published by DeepSeek.
+ * @param name - package name from tarball manifest.
+ * @returns true if owned by Buddhi.
+ */
+function isOwnedPackage(name: string): boolean {
+  return name === 'buddhi-ai' || name.startsWith('@buddhilive/')
+}
+
 /** Publish the family named by `--family` from the directory named by `--from`. */
 async function main(): Promise<void> {
   const { values } = parseArgs({
-    options: { family: { type: 'string' }, from: { type: 'string' } },
+    options: {
+      family: { type: 'string' },
+      from: { type: 'string' },
+      otp: { type: 'string' },
+      token: { type: 'string' },
+      all: { type: 'boolean' },
+    },
     allowPositionals: false,
   })
   if (values.family === undefined || values.from === undefined) {
-    throw new Error('usage: publish.ts --family <dsh|vendor> --from <packed directory>')
+    throw new Error('usage: publish.ts --family <dsh|vendor> --from <packed directory> [--otp <code>] [--token <token>] [--all]')
   }
 
   const family = releaseFamily(values.family)
@@ -152,7 +186,14 @@ async function main(): Promise<void> {
     const progress = `[${String(index + 1)}/${total}]`
     const tarball = join(directory, filename)
     const { name, version } = packedIdentity(tarball)
-    const state = registryState(name, version)
+
+    if (values.all !== true && !isOwnedPackage(name)) {
+      console.log(`release publish: ${progress} ${name}@${version} is an upstream package, skipping`)
+      skipped += 1
+      continue
+    }
+
+    const state = registryState(name, version, values.token)
     if (state.kind === 'present') {
       const local = integrityOf(tarball)
       if (state.integrity !== local) {
@@ -169,7 +210,7 @@ async function main(): Promise<void> {
     // Space out the writes: the gap belongs between publishes, so a run that
     // only skips does not wait at all.
     if (published > 0) await sleep(PUBLISH_SPACING_MS)
-    await publishTarball(tarball, name, version, family.distTagForVersion(version))
+    await publishTarball(tarball, name, version, family.distTagForVersion(version), values.otp, values.token)
     console.log(`release publish: ${progress} ${name}@${version} published`)
     published += 1
   }

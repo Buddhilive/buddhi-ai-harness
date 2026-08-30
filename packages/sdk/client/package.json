@@ -31,7 +31,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh": "workspace:*"
+    "buddhi-ai": "workspace:*"
   },
   "peerDependencies": {
     "@deepseek-ai/dsh-invariants": "workspace:^",

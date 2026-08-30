@@ -1,16 +1,16 @@
-# Pack the dsh release sequence: every package under packages/ plus the apps/
+# Pack the buddhi-ai release sequence: every package under packages/ plus the apps/
 # entries, all on one version. The vendored framework and the native packages are
 # separate sequences with their own workflows and version lines.
 #
 # Pack and dependency-layout verification run without credentials on every pull
-# request and master push. Publication is a manual workflow_dispatch of
+# request and branch push. Publication is a manual workflow_dispatch of
 # release-publish.yml from a dsh-v* tag.
-name: Release (dsh)
+name: Release (buddhi-ai)
 
 on:
   pull_request:
   push:
-    branches: [master]
+    branches: [master, buddhi-ai, release]
   workflow_dispatch:
 
 permissions:
@@ -134,7 +134,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: dsh-npm-tarballs
+          name: buddhi-ai-npm-tarballs
           path: dist/npm/*
           if-no-files-found: error
           retention-days: 7

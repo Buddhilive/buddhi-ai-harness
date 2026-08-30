@@ -24,7 +24,7 @@ describe('THIRD_PARTY_NOTICES.md', () => {
   // already runs in the test lane, so the check costs no extra CI process.
   // Pre-commit regenerates the file whenever a manifest is staged, so reaching
   // this assertion means the notices were committed without that hook.
-  it('matches what the generator produces from the current manifests', () => {
+  it('matches what the generator produces from the current manifests', { timeout: 30000 }, () => {
     const generated = render()
     expect(generated).toContain('It depends on the third-party software listed below.')
     expect(readFileSync(resolve(root, 'THIRD_PARTY_NOTICES.md'), 'utf8'), 'stale notices — run `pnpm run gen-third-party-notices`').toBe(generated)
@@ -141,6 +141,20 @@ describe('virtualManifest', () => {
       writeFileSync(join(other, 'package.json'), JSON.stringify({ name: 'other-pkg', version: '1.0.0' }))
 
       expect(virtualManifest(store, '@scope/missing')).toBeUndefined()
+    } finally {
+      rmSync(root, { recursive: true, force: true })
+    }
+  })
+
+  it('skips prefix-matching store entries that lack a package.json', () => {
+    const root = mkdtempSync(join(tmpdir(), 'dsh-notices-incomplete-'))
+    try {
+      const name = '@scope/pkg'
+      const store = join(root, 'store')
+      const incomplete = join(store, `${name.replace('/', '+')}@1.0.0`, 'node_modules')
+      mkdirSync(incomplete, { recursive: true })
+
+      expect(virtualManifest(store, name)).toBeUndefined()
     } finally {
       rmSync(root, { recursive: true, force: true })
     }

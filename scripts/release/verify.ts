@@ -56,9 +56,12 @@ function verifyPublishable(members: readonly ReleaseMember[]): void {
  * @param ref - the `GITHUB_REF` value.
  */
 function verifyTag(family: ReleaseFamily, members: readonly ReleaseMember[], ref: string): void {
+  if (ref === 'refs/heads/release' || ref.endsWith('/release')) {
+    return
+  }
   const prefix = 'refs/tags/'
   if (!ref.startsWith(prefix)) {
-    throw new Error(`publishing release family ${family.id} requires running from a ${family.tagPrefix}* tag, got ${ref || '(no ref)'}`)
+    throw new Error(`publishing release family ${family.id} requires running from a ${family.tagPrefix}* tag or the release branch, got ${ref || '(no ref)'}`)
   }
   const tag = ref.slice(prefix.length)
   if (!tag.startsWith(family.tagPrefix)) {

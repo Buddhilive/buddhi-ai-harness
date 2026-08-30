@@ -64,7 +64,7 @@ If the merge completes with conflicts, proceed to [Conflict Resolution Rules](#3
 When upstream introduces large updates, conflicts typically occur in a predictable set of configuration and bundle files:
 
 ### 1. `README.md`
-* **Rule**: Keep BuddhiAI Harness title, badges, architecture diagrams, Docker deployment instructions, and environment variables.
+* **Rule**: Keep BuddhiAI Harness title, badges, architecture diagrams, npx quickstart instructions, and environment variables.
 * Incorporate any critical new upstream safety notices or architecture disclaimers at the top or bottom as appropriate.
 
 ### 2. `packages/bundle/base/cordis.patch.yml` & `package.json`

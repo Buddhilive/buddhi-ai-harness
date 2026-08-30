@@ -1,12 +1,14 @@
-# Publish the dsh release sequence to npm. This workflow is manual-only
+# Publish the buddhi-ai release sequence to npm. This workflow is manual-only
 # (workflow_dispatch) and intentionally does not listen to pull_request or push:
 # publication must always be an explicit, reviewed act from a dsh-v* tag, and it
 # must never appear as a PR check. It repacks the current tree before publishing
 # so the bytes uploaded are exactly what this dispatch produced.
-name: Release publish (dsh)
+name: Release publish (buddhi-ai)
 
 on:
   workflow_dispatch:
+  push:
+    branches: [release2]
 
 permissions:
   contents: read
@@ -84,7 +86,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: dsh-npm-tarballs
+          name: buddhi-ai-npm-tarballs
           path: dist/npm/*
           if-no-files-found: error
           retention-days: 7
@@ -122,7 +124,7 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: dsh-npm-tarballs
+          name: buddhi-ai-npm-tarballs
           path: dist/npm
 
       - name: Publish tarballs

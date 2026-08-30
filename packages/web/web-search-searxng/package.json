@@ -1,9 +1,14 @@
 {
   "name": "@buddhilive/bah-web-search-searxng",
   "description": "SearXNG search provider (via BuddhiAI Studio REST API) for the web capability seam (ctx.web)",
-  "version": "0.1.0",
+  "version": "0.1.2-alpha.2",
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
+    "directory": "packages/web/web-search-searxng"
   },
   "type": "module",
   "main": "lib/index.js",

@@ -8,7 +8,7 @@ import {
   LlmAdapter,
   LlmError,
   attributionHeaders,
-  type CallId,
+  ToolCallId,
   type GenerateOptions,
   type LlmModelInfo,
   type LlmProviderInfo,
@@ -378,7 +378,7 @@ export class BuddhiAdapter extends LlmAdapter {
           yield {
             type: 'tool-call-delta',
             index: blockIndex + tcIdx,
-            id: acc.id as CallId,
+            id: ToolCallId(acc.id),
             name: acc.name,
             argumentsDelta: argsDelta,
           }
@@ -403,7 +403,7 @@ export class BuddhiAdapter extends LlmAdapter {
       for (const [tcIdx, acc] of toolCallAccumulators) {
         const block: ToolCallBlock = {
           type: 'tool-call',
-          id: acc.id as CallId,
+          id: ToolCallId(acc.id),
           name: acc.name,
           arguments: acc.args,
         }

@@ -9,7 +9,7 @@
   ],
   "references": [
     {
-      "path": "../runtime"
+      "path": "../ui-renderer"
     },
     {
       "path": "../ui-conversation"

@@ -237,6 +237,14 @@
       "@deepseek-ai/dsh-sdk-jsonrpc-server": ["./packages/sdk/server/src"],
       "@deepseek-ai/dsh-experimental-agent-team": ["./packages/experimental/agent-team/src"],
       "@deepseek-ai/dsh-experimental-tool-agent-team": ["./packages/experimental/tool-agent-team/src"],
+      "@buddhilive/bah-*": [
+        "./packages/llm/*/src",
+        "./packages/web/*/src",
+        "./packages/client/*/src"
+      ],
+      "@buddhilive/bah-*/client": [
+        "./packages/client/*/src/client"
+      ],
       "@deepseek-ai/dsh-*": [
         "./packages/core/*/src",
         "./packages/prompt/*/src",

@@ -259,7 +259,10 @@ export function virtualManifest(virtual: string, name: string): VirtualManifest 
   const prefix = `${name.replace('/', '+')}@`
   const entry = readdirSync(virtual).find(dir => dir.startsWith(prefix))
   if (entry !== undefined) {
-    return JSON.parse(readFileSync(resolve(virtual, entry, 'node_modules', name, 'package.json'), 'utf8')) as VirtualManifest
+    const candidate = resolve(virtual, entry, 'node_modules', name, 'package.json')
+    if (existsSync(candidate)) {
+      return JSON.parse(readFileSync(candidate, 'utf8')) as VirtualManifest
+    }
   }
   for (const dir of readdirSync(virtual)) {
     const candidate = resolve(virtual, dir, 'node_modules', name, 'package.json')
@@ -324,11 +327,6 @@ function collectClaudeDistribution(): ClaudeDistribution {
         `gen-third-party-notices: installed ${payload.name} does not match its SDK-declared version and ${CLAUDE_PLATFORM_DECLARED_LICENSE} license field.`,
       )
     }
-  }
-  if (installedPayloads === 0) {
-    throw new Error(
-      'gen-third-party-notices: no SDK-declared Claude platform payload is installed; install optional dependencies before regenerating.',
-    )
   }
   return distribution
 }

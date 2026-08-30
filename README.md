@@ -5,6 +5,8 @@
 
 **BuddhiAI Harness** (`bah`) is an extensible, plugin-based AI agent harness designed for the **BuddhiAI Local AI Ecosystem**. It orchestrates autonomous agent loops, code execution, multi-agent workflows, and web access, connecting natively and exclusively by default to **[BuddhiAI Studio](https://github.com/Buddhilive/buddhi-ai-studio)** for local inferencing and SearXNG web search.
 
+It is built on an **everything-is-a-plugin** architecture and powered by [Cordis](https://github.com/cordiverse/cordis), whose design is described in [_A Programming Paradigm for Spatiotemporal Composability_](https://arxiv.org/abs/2608.25512).
+
 ---
 
 ## 🏛 Architecture & Ecosystem Integration

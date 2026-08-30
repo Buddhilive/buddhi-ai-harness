@@ -14,7 +14,7 @@
 
 import { useState } from 'react'
 import type { ReactNode } from 'react'
-import type { IApiClient } from '@deepseek-ai/dsh-api-remotes/client'
+import type { IApiClient, SettingsNamespaceView } from '@deepseek-ai/dsh-api-remotes/client'
 import { Button, IconPlusOutline16, Modal } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { InjectFace } from '@deepseek-ai/dsh-client-ui-slots'
 import { CustomProviderCard } from './CustomProviderCard.tsx'
@@ -22,8 +22,47 @@ import { deriveKeyRef, messageOf, protocolChoices, providerUsable } from './stor
 import type { ModelsSettingsStore, ProviderRow } from './store.ts'
 import type { SettingsSchemaOperations } from './schema-operations.ts'
 import { ProviderEditor, type ProviderEditorProps } from './ProviderEditor.tsx'
+import { useBuddhiHealth } from './buddhi-health.ts'
 import type { en } from './locales.ts'
 import styles from './ModelsSection.module.css'
+
+function BuddhiRowHealthBadge({
+  namespace,
+  schema,
+  t,
+}: {
+  namespace: SettingsNamespaceView | undefined
+  schema: SettingsSchemaOperations
+  t: (key: keyof typeof en) => string
+}): ReactNode {
+  const urlValue = namespace !== undefined ? schema.getPath(namespace.value, ['baseURL']) : undefined
+  const targetUrl = typeof urlValue === 'string' && urlValue.length > 0 ? urlValue : 'http://localhost:8765/v1'
+  const health = useBuddhiHealth(targetUrl)
+
+  return (
+    <span
+      className={
+        health.status === 'online'
+          ? styles['healthBadgeOnline']
+          : health.status === 'offline'
+            ? styles['healthBadgeOffline']
+            : styles['healthBadgeChecking']
+      }
+    >
+      <span
+        className={
+          health.status === 'online'
+            ? styles['credentialDotConfigured']
+            : health.status === 'offline'
+              ? styles['credentialDotMissing']
+              : styles['credentialDot']
+        }
+        style={{ width: 6, height: 6 }}
+      />
+      {health.status === 'online' ? t('buddhiOnline') : health.status === 'offline' ? t('buddhiOffline') : t('buddhiChecking')}
+    </span>
+  )
+}
 
 /** Injected dependencies of {@link ModelsSection} (slot `inject`). */
 export interface ModelsSectionInjected {
@@ -272,7 +311,9 @@ function Loaded({ injected }: { injected: ModelsSectionFace }): ReactNode {
   // One fact decides both first-run postures on this page and the onboarding
   // step: whether the user already has a provider to talk to.
   const anyUsable = state.rows.some(providerUsable)
-  const configured = state.rows.filter(row => row.configured)
+  const buddhiRow = state.rows.find(row => row.entry.provider === 'buddhi-studio')
+  const hasBuddhiStudio = buddhiRow !== undefined
+  const configured = hasBuddhiStudio ? [buddhiRow] : state.rows.filter(row => row.configured)
   const addable = state.rows.filter(row => !row.configured && row.entry.settingsNs !== '')
   const addTarget = adding ? editing : undefined
   const addNamespace = addTarget === undefined ? undefined : state.namespaces.get(addTarget.settingsNs)
@@ -326,6 +367,9 @@ function Loaded({ injected }: { injected: ModelsSectionFace }): ReactNode {
               <div className={styles['rowHead']}>
                 <span className={styles['rowIdentity']}>
                   <span className={styles['rowName']}>{row.entry.displayName}</span>
+                  {row.entry.provider === 'buddhi-studio'
+                    ? <BuddhiRowHealthBadge namespace={namespace} schema={schema} t={t} />
+                    : null}
                   {/* Only the adapter can tell a hand-declared route from a
                       shipped one it also has a stored profile for, so the tag
                       follows its answer and stays off when it gives none. */}
@@ -341,7 +385,7 @@ function Loaded({ injected }: { injected: ModelsSectionFace }): ReactNode {
                         title={t('credentialConfigured')}
                       />
                     )
-                    : credentialMissing
+                    : credentialMissing && row.entry.provider !== 'buddhi-studio'
                       ? (
                         <span
                           className={`${styles['credentialDot']} ${styles['credentialDotMissing']}`}
@@ -458,11 +502,7 @@ function Loaded({ injected }: { injected: ModelsSectionFace }): ReactNode {
                 />
               </div>
             )
-            : (
-              // One row for the two ways to gain a provider: adopt one the
-              // adapter already knows, or declare one it does not. Side by side
-              // and equal-width so they read as siblings and line up with the
-              // rows above, rather than two pills of different lengths.
+            : hasBuddhiStudio ? null : (
               <div className={styles['addActions']}>
                 <button
                   type="button"
@@ -478,7 +518,6 @@ function Loaded({ injected }: { injected: ModelsSectionFace }): ReactNode {
                     setEditing(targetOf(first))
                   }}
                 >
-                  {/* Same glyph as the composer's attach button. */}
                   <IconPlusOutline16 size={14} />
                   {t('add')}
                 </button>

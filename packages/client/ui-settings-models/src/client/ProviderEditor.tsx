@@ -31,12 +31,13 @@ import { apiKeyFailure } from './apiKey.ts'
 import { EditorFooter } from './EditorFooter.tsx'
 import { ModelListEditor } from './ModelListEditor.tsx'
 import { deriveKeyRef, messageOf, protocolChoices } from './store.ts'
+import { useBuddhiHealth } from './buddhi-health.ts'
 import type { SettingsSchemaOperations } from './schema-operations.ts'
 import type { en } from './locales.ts'
 import styles from './ModelsSection.module.css'
 
 /** Per-adapter-family curated field sets (unknown namespaces get the hint alone). */
-type EditorLayout = 'deepseek' | 'pi-ai' | 'unknown'
+type EditorLayout = 'deepseek' | 'pi-ai' | 'buddhi' | 'unknown'
 
 /** The public DeepSeek endpoint shown as the deepseek base-URL placeholder. */
 const DEEPSEEK_PUBLIC_BASE_URL = 'https://api.deepseek.com'
@@ -129,6 +130,7 @@ export function pathOps(
 function layoutOf(ns: string): EditorLayout {
   if (ns === 'llm-deepseek') return 'deepseek'
   if (ns === 'llm-pi-ai') return 'pi-ai'
+  if (ns === 'llm-buddhi') return 'buddhi'
   return 'unknown'
 }
 
@@ -173,12 +175,17 @@ export function ProviderEditor(props: ProviderEditorProps): ReactNode {
   const keyRef = refFor(schema, namespace, settingsPath, props.provider)
   // The same schema read the create card makes, so the choices offered here
   // and there cannot drift apart: both come from the adapter's own `Config`.
-  // Only the pi-ai layout has a per-route protocol for the read to find, and
-  // it rehydrates the whole section schema, so the other layouts skip it.
+  const stringAt = (source: unknown, key: string): string | undefined => {
+    const value = schema.getPath(source, [key])
+    return typeof value === 'string' && value.trim().length > 0 ? value : undefined
+  }
+
   const protocols = useMemo(
     () => layout === 'pi-ai' ? protocolChoices(namespace, schema) : [],
     [layout, namespace, schema],
   )
+  const buddhiTargetUrl = stringAt(draft, 'baseURL') ?? stringAt(fallback, 'baseURL') ?? 'http://localhost:8765/v1'
+  const buddhiHealth = useBuddhiHealth(layout === 'buddhi' ? buddhiTargetUrl : undefined)
 
   useEffect(() => {
     let stale = false
@@ -196,11 +203,6 @@ export function ProviderEditor(props: ProviderEditorProps): ReactNode {
     )
     return () => { stale = true }
   }, [api.credentials, keyRef])
-
-  const stringAt = (source: unknown, key: string): string | undefined => {
-    const value = schema.getPath(source, [key])
-    return typeof value === 'string' && value.trim().length > 0 ? value : undefined
-  }
   const setField = (key: string, next: string | undefined): void => {
     // A value of nothing but whitespace is cleared, not stored: `stringAt`
     // already reports it as absent, so the field would otherwise render empty
@@ -252,7 +254,9 @@ export function ProviderEditor(props: ProviderEditorProps): ReactNode {
     const next = layout === 'pi-ai' && stringAt(draft, 'apiKeyEnv') === undefined
       && stringAt(fallback, 'apiKeyEnv') === undefined && keyValue.length > 0
       ? schema.setPath(draft, ['apiKeyEnv'], keyRef)
-      : draft
+      : layout === 'buddhi' && stringAt(draft, 'baseURL') === undefined
+        ? schema.setPath(draft, ['baseURL'], stringAt(fallback, 'baseURL') ?? 'http://localhost:8765/v1')
+        : draft
     if (props.credentialOnly !== true) {
       // The same checker gates the submit button, so a card cannot reach this
       // with a bad row; it stays because the schema check below would refuse
@@ -342,7 +346,70 @@ export function ProviderEditor(props: ProviderEditorProps): ReactNode {
    * narrowed so the per-family branches below are total: an unknown namespace
    * renders the hint instead and never reaches this body.
    */
-  const curatedFields = (family: 'deepseek' | 'pi-ai'): ReactNode => {
+  const curatedFields = (family: 'deepseek' | 'pi-ai' | 'buddhi'): ReactNode => {
+    if (family === 'buddhi') {
+      return (
+        <>
+          <div className={styles['field']}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
+              <span className={styles['fieldLabel']}>{t('buddhiStudioUrl')}</span>
+              <span className={
+                buddhiHealth.status === 'online'
+                  ? styles['healthBadgeOnline']
+                  : buddhiHealth.status === 'offline'
+                    ? styles['healthBadgeOffline']
+                    : styles['healthBadgeChecking']
+              }>
+                <span
+                  className={
+                    buddhiHealth.status === 'online'
+                      ? styles['credentialDotConfigured']
+                      : buddhiHealth.status === 'offline'
+                        ? styles['credentialDotMissing']
+                        : styles['credentialDot']
+                  }
+                  style={{ width: 6, height: 6 }}
+                />
+                {buddhiHealth.status === 'online' ? t('buddhiOnline') : buddhiHealth.status === 'offline' ? t('buddhiOffline') : t('buddhiChecking')}
+              </span>
+            </div>
+            <input
+              className={styles['input']}
+              type="text"
+              value={stringAt(draft, 'baseURL') ?? ''}
+              placeholder={stringAt(fallback, 'baseURL') ?? 'http://localhost:8765/v1'}
+              aria-label={t('buddhiStudioUrl')}
+              disabled={disabled}
+              onChange={(event) => {
+                setField('baseURL', event.target.value === '' ? undefined : event.target.value)
+              }}
+            />
+          </div>
+          <div className={styles['field']}>
+            <span className={styles['fieldLabel']}>{t('keyInput')}</span>
+            <input
+              className={styles['input']}
+              type="password"
+              autoComplete="off"
+              value={keyDraft}
+              placeholder={
+                keyLocked
+                  ? t('keyEnvLocked')
+                  : keyState?.configured === true
+                    ? t('keyStored')
+                    : t('buddhiKeyPlaceholder')
+              }
+              aria-label={t('keyInput')}
+              aria-invalid={shownKeyFailure !== undefined}
+              disabled={disabled || keyLocked}
+              onChange={(event) => { setKeyDraft(event.target.value) }}
+            />
+            {shownKeyFailure === undefined ? null : <p className={styles['error']}>{t(shownKeyFailure)}</p>}
+          </div>
+        </>
+      )
+    }
+
     // What a hand-declared route names for itself and nothing else can supply.
     // A whole-section `llm-deepseek` profile is a composition fact with no
     // per-route identity for its schema to carry, hence the family test.

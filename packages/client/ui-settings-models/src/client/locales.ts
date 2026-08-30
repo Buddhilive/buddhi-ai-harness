@@ -99,6 +99,12 @@ export const en = {
   onboardingSave: 'Save and continue',
   onboardingSaving: 'Saving…',
   keyRequired: 'Enter an API key to continue.',
+  buddhiStudioUrl: 'BuddhiAI Studio URL',
+  buddhiStudioUrlPlaceholder: 'http://localhost:8765/v1',
+  buddhiKeyPlaceholder: 'Optional API key (local inference requires none)',
+  buddhiOnline: 'Online',
+  buddhiOffline: 'Offline',
+  buddhiChecking: 'Checking…',
 }
 
 /** The settings.models namespace key union. */
@@ -201,4 +207,10 @@ export const zh: { [Key in keyof typeof en]: string } = {
   onboardingSave: '保存并继续',
   onboardingSaving: '保存中…',
   keyRequired: '请输入 API 密钥后继续。',
+  buddhiStudioUrl: 'BuddhiAI Studio 地址',
+  buddhiStudioUrlPlaceholder: 'http://localhost:8765/v1',
+  buddhiKeyPlaceholder: '可选 API 密钥（本地推理无需密钥）',
+  buddhiOnline: '在线',
+  buddhiOffline: '离线',
+  buddhiChecking: '检测中…',
 }

@@ -1403,4 +1403,87 @@ describe('API key field', () => {
     await waitFor(() => { expect(load).toHaveBeenCalledOnce() })
     expect(screen.queryByText(en.customTitle)).toBeNull()
   })
+
+  describe('BuddhiAI Studio provider', () => {
+    function mountBuddhiSection(options: { mutate?: ReturnType<typeof vi.fn> } = {}) {
+      const namespace: SettingsNamespaceView = {
+        ns: 'llm-buddhi',
+        schema: {
+          type: 'object',
+          properties: {
+            baseURL: { type: 'string', default: 'http://localhost:8765/v1' },
+            apiKey: { type: 'string' },
+          },
+        },
+        value: { baseURL: 'http://localhost:8765/v1' },
+        base: { baseURL: 'http://localhost:8765/v1' },
+        user: {},
+        applies: 'live',
+        secrets: [],
+        revision: 1,
+      }
+      const mutate = options.mutate ?? vi.fn(() => Promise.resolve(ok(namespace)))
+      const face = {
+        llm: {
+          providers: vi.fn(() => Promise.resolve(ok({
+            providers: [{
+              provider: 'buddhi-studio',
+              displayName: 'BuddhiAI Studio',
+              settingsNs: 'llm-buddhi',
+              settingsPath: [],
+              active: true,
+            }],
+          }))),
+          models: vi.fn(() => Promise.resolve(ok({ groups: [], failures: [] }))),
+          discoverModels: vi.fn(() => Promise.resolve(ok({ models: [] }))),
+        },
+        settings: {
+          describe: vi.fn(() => Promise.resolve(ok({ writable: true, namespaces: [namespace] }))),
+          update: vi.fn(),
+          replace: vi.fn(),
+          mutate,
+        },
+        credentials: {
+          describe: vi.fn(() => Promise.resolve(ok({ credentials: {} }))),
+          set: vi.fn(() => Promise.resolve(ok({}))),
+          unset: vi.fn(),
+        },
+      }
+      const controller = new ModelsSettingsStore(
+        face as unknown as WireFace, settingsSchema, new SettingsDescribeMirror(face as never))
+      return { face, controller, mutate }
+    }
+
+    it('renders BuddhiAI Studio, hides add buttons, and allows editing baseURL', async () => {
+      const { controller, mutate, face } = mountBuddhiSection()
+      await controller.load()
+      const injected: ModelsSectionProps = {
+        controller,
+        useSnapshot: bindSnapshotSelector(controller.store),
+        api: face as never,
+        schema: settingsSchema,
+        t,
+      }
+      render(<ModelsSection {...injected} />)
+
+      expect(screen.getByText('BuddhiAI Studio')).toBeTruthy()
+      expect(screen.queryByRole('button', { name: en.add })).toBeNull()
+      expect(screen.queryByRole('button', { name: en.customAdd })).toBeNull()
+
+      fireEvent.click(screen.getByText(en.edit))
+      const urlInput = screen.getByLabelText(en.buddhiStudioUrl)
+      expect(urlInput).toBeTruthy()
+
+      fireEvent.change(urlInput, { target: { value: 'http://127.0.0.1:8765/v1' } })
+      fireEvent.click(screen.getByText(en.apply))
+
+      await waitFor(() => {
+        expect(mutate).toHaveBeenCalledWith({
+          ns: 'llm-buddhi',
+          ops: [{ op: 'set', path: ['baseURL'], value: 'http://127.0.0.1:8765/v1' }],
+          expectedRevision: 1,
+        })
+      })
+    })
+  })
 })

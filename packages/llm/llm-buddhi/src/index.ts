@@ -8,13 +8,15 @@
 
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
+import { installSettingsSection, settingsNamespace } from '@deepseek-ai/dsh-settings'
 import { BuddhiAdapter, resolveBaseURL, type BuddhiAdapterOptions } from './adapter.ts'
 
 export const name = 'llm-buddhi'
 export const inject = ['llm']
 
 export const PROVIDER = 'buddhi-studio'
-export const SETTINGS_NS = 'llm-buddhi'
+const NS = settingsNamespace('llm-buddhi')
+export const SETTINGS_NS = NS
 
 export interface Config {
   baseURL?: string
@@ -25,7 +27,7 @@ export interface Config {
 }
 
 export const Config: z<Config> = z.object({
-  baseURL: z.string().description('Base URL of the BuddhiAI Studio API (e.g. http://localhost:8765/v1)'),
+  baseURL: z.string().default('http://localhost:8765/v1').description('Base URL of the BuddhiAI Studio API (e.g. http://localhost:8765/v1)'),
   apiKey: z.string().description('Optional API key if BuddhiAI Studio requires authentication'),
   apiKeyEnv: z.string().description('Optional environment variable reference for API key'),
   defaultContextWindow: z.number().default(128000),
@@ -33,15 +35,18 @@ export const Config: z<Config> = z.object({
 })
 
 export function apply(ctx: Context, config: Config = {}): void {
-  const currentConfig = config
+  let current: () => Config = () => config
 
-  const getOptions = (): BuddhiAdapterOptions => ({
-    baseURL: resolveBaseURL(currentConfig.baseURL),
-    apiKey: currentConfig.apiKey,
-    apiKeyEnv: currentConfig.apiKeyEnv,
-    defaultContextWindow: currentConfig.defaultContextWindow,
-    defaultMaxTokens: currentConfig.defaultMaxTokens,
-  })
+  const getOptions = (): BuddhiAdapterOptions => {
+    const cfg = current()
+    return {
+      baseURL: resolveBaseURL(cfg.baseURL),
+      apiKey: cfg.apiKey,
+      apiKeyEnv: cfg.apiKeyEnv,
+      defaultContextWindow: cfg.defaultContextWindow,
+      defaultMaxTokens: cfg.defaultMaxTokens,
+    }
+  }
 
   const adapter = new BuddhiAdapter(getOptions)
 
@@ -49,13 +54,13 @@ export function apply(ctx: Context, config: Config = {}): void {
     {
       provider: PROVIDER,
       displayName: 'BuddhiAI Studio',
-      settingsNs: SETTINGS_NS,
+      settingsNs: NS,
       settingsPath: [],
     },
   ])
 
-  ctx.llm.registerModelDiscovery(SETTINGS_NS, async (req) => {
-    const baseURL = resolveBaseURL(req.baseURL || currentConfig.baseURL)
+  ctx.llm.registerModelDiscovery(NS, async (req) => {
+    const baseURL = resolveBaseURL(req.baseURL || current().baseURL)
     try {
       const res = await fetch(`${baseURL}/models`, {
         headers: {
@@ -76,6 +81,13 @@ export function apply(ctx: Context, config: Config = {}): void {
   })
 
   ctx.llm.registerAdapter([PROVIDER], adapter)
+
+  installSettingsSection(ctx, NS, Config, config, {
+    setSource: (source) => {
+      current = source
+    },
+    onChange: () => {},
+  })
 }
 
 export default {

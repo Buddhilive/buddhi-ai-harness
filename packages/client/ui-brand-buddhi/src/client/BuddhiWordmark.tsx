@@ -32,7 +32,7 @@ export function BuddhiWordmark({ className, ...props }: BuddhiWordmarkProps) {
           letterSpacing: '0.06em',
           padding: '1px 5px',
           borderRadius: '4px',
-          backgroundColor: 'currentColor',
+          backgroundColor: 'var(--color-bg-base, #DD603C)',
           color: 'var(--color-bg-base, #121214)',
           opacity: 0.9,
         }}

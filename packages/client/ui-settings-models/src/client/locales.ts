@@ -1,7 +1,5 @@
 /** Copy dictionaries for the Models settings section. */
 
-import { WELCOME_NOTICE_COPY } from '../onboarding-copy.ts'
-
 /** English strings (the key-set source of truth for this pair). */
 export const en = {
   nav: 'Models',
@@ -87,11 +85,13 @@ export const en = {
   customApiUnset: 'Not selected',
   customNeedsBaseUrl: 'A custom provider needs a base URL.',
   customNeedsModels: 'A custom provider needs at least one model.',
+  customBaseUrlPlaceholder: 'https://gateway.example/v1',
+  settingsPathUnresolvable: 'unresolvable settings path',
   create: 'Create provider',
   creating: 'Creating\u2026',
-  welcomeTitle: WELCOME_NOTICE_COPY.en.title,
-  welcomeBody: WELCOME_NOTICE_COPY.en.body,
-  welcomeContinue: WELCOME_NOTICE_COPY.en.continueLabel,
+  welcomeTitle: 'Welcome to BuddhiAI Harness',
+  welcomeBody: 'BuddhiAI Harness is an extensible AI agent harness designed for the BuddhiAI ecosystem, connecting seamlessly to BuddhiAI Studio for local, private, and high-performance inferencing.\n\nBy default, BuddhiAI Harness depends exclusively on your local BuddhiAI Studio service (running on http://localhost:8765). Welcome to the BuddhiAI ecosystem!',
+  welcomeContinue: 'Continue',
   welcomeError: 'The acknowledgement could not be saved. Please try again.',
   onboardingTitle: 'Add an API key to get started',
   onboardingDescription: 'Configure the official DeepSeek provider to start building.',
@@ -195,11 +195,13 @@ export const zh: { [Key in keyof typeof en]: string } = {
   customApiUnset: '未选择',
   customNeedsBaseUrl: '自定义提供方需要填写 API 地址。',
   customNeedsModels: '自定义提供方至少需要一个模型。',
+  customBaseUrlPlaceholder: 'https://gateway.example/v1',
+  settingsPathUnresolvable: '无法解析设置路径',
   create: '创建提供方',
   creating: '创建中\u2026',
-  welcomeTitle: WELCOME_NOTICE_COPY.zh.title,
-  welcomeBody: WELCOME_NOTICE_COPY.zh.body,
-  welcomeContinue: WELCOME_NOTICE_COPY.zh.continueLabel,
+  welcomeTitle: 'BuddhiAI Harness 欢迎指南',
+  welcomeBody: 'BuddhiAI Harness 是专为 BuddhiAI 本地智能生态设计的可扩展智能代理框架，与 BuddhiAI Studio 无缝集成提供完全私有化、高可用的本地推理服务。\n\n默认情况下，BuddhiAI Harness 依赖本地运行的 BuddhiAI Studio (http://localhost:8765)。欢迎加入 BuddhiAI 开源生态！',
+  welcomeContinue: '继续',
   welcomeError: '暂时无法保存确认状态，请重试。',
   onboardingTitle: '添加一个 API Key 开始使用',
   onboardingDescription: '配置 DeepSeek 官方模型，即可开始使用。',

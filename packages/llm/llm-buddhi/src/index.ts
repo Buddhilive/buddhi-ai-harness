@@ -8,15 +8,14 @@
 
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
-import { installSettingsSection, settingsNamespace } from '@deepseek-ai/dsh-settings'
+import type { SettingsNamespace } from '@deepseek-ai/dsh-settings'
 import { BuddhiAdapter, resolveBaseURL, type BuddhiAdapterOptions } from './adapter.ts'
 
 export const name = 'llm-buddhi'
 export const inject = ['llm']
 
 export const PROVIDER = 'buddhi-studio'
-const NS = settingsNamespace('llm-buddhi')
-export const SETTINGS_NS = NS
+export const SETTINGS_NS: SettingsNamespace = 'llm-buddhi' as SettingsNamespace
 
 export interface Config {
   baseURL?: string
@@ -54,12 +53,12 @@ export function apply(ctx: Context, config: Config = {}): void {
     {
       provider: PROVIDER,
       displayName: 'BuddhiAI Studio',
-      settingsNs: NS,
+      settingsNs: SETTINGS_NS,
       settingsPath: [],
     },
   ])
 
-  ctx.llm.registerModelDiscovery(NS, async (req) => {
+  ctx.llm.registerModelDiscovery(SETTINGS_NS, async (req) => {
     const baseURL = resolveBaseURL(req.baseURL || current().baseURL)
     try {
       const res = await fetch(`${baseURL}/models`, {
@@ -82,12 +81,10 @@ export function apply(ctx: Context, config: Config = {}): void {
 
   ctx.llm.registerAdapter([PROVIDER], adapter)
 
-  installSettingsSection(ctx, NS, Config, config, {
-    setSource: (source) => {
-      current = source
-    },
-    onChange: () => {},
-  })
+  if (ctx.settings !== undefined) {
+    const scope = ctx.settings.register(SETTINGS_NS, Config, { base: config })
+    current = () => scope.get()
+  }
 }
 
 export default {

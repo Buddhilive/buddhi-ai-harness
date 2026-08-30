@@ -81,10 +81,14 @@ export function apply(ctx: Context, config: Config = {}): void {
 
   ctx.llm.registerAdapter([PROVIDER], adapter)
 
-  if (ctx.settings !== undefined) {
-    const scope = ctx.settings.register(SETTINGS_NS, Config, { base: config })
-    current = () => scope.get()
-  }
+  ctx.inject(['settings'], (settingsCtx) => {
+    settingsCtx.settings.installSection(ctx, SETTINGS_NS, Config, config, {
+      setSource: (source) => {
+        current = source
+      },
+      onChange: () => {},
+    })
+  })
 }
 
 export default {

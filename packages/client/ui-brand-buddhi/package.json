@@ -1,7 +1,7 @@
 {
   "name": "@buddhilive/bah-client-ui-brand",
   "description": "BuddhiAI Harness brand occupants for the Web client sidebar and conversation Hero slots",
-  "version": "0.1.2-alpha.2",
+  "version": "0.1.2-alpha.3",
   "publishConfig": {
     "access": "public"
   },

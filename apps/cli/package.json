@@ -1,7 +1,7 @@
 {
   "name": "buddhi-ai",
   "description": "buddhi-ai: profile boot, plugin management, and browser UI for BuddhiAI Harness",
-  "version": "0.1.2-alpha.2",
+  "version": "0.1.2-alpha.3",
   "publishConfig": {
     "access": "public"
   },

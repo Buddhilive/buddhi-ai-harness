@@ -1,6 +1,6 @@
 import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import SessionStore from '@deepseek-ai/dsh-session'
+import AgentRegistry from '@buddhilive/dsh-agent'
+import SessionStore from '@buddhilive/dsh-session'
 import { describe, expect, it, vi } from 'vitest'
 import {
   createSessionTestController,

@@ -10,12 +10,12 @@
 import { describe, expect, it } from 'vitest'
 import { Context } from '@deepseek-ai/cordis'
 import { z } from 'zod'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import type { Session, SessionEvent, SessionHeader } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
+import SessionStore, { SessionId } from '@buddhilive/dsh-session'
+import type { Session, SessionEvent, SessionHeader } from '@buddhilive/dsh-session'
+import SessionProjectionRegistry from '@buddhilive/dsh-session-projection'
+import type { ProjectionDefinition } from '@buddhilive/dsh-session-projection'
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@buddhilive/dsh-session-projection/types' {
   interface SessionProjectionStateMap {
     'test/marks': MarksState
     'test/count': number
@@ -26,7 +26,7 @@ declare module '@deepseek-ai/dsh-session-projection/types' {
   }
 }
 
-declare module '@deepseek-ai/dsh-session/types' {
+declare module '@buddhilive/dsh-session/types' {
   interface SessionEventMap {
     'test/mark': { marks: string[] }
   }

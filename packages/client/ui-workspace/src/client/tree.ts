@@ -5,14 +5,14 @@
  */
 import {
   type SessionListState, type SessionSearchResultItem, type SessionSummary,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { WorkspaceId, WorkspaceView } from '@deepseek-ai/dsh-api-workspace-controller/client'
+} from '@buddhilive/dsh-api-session-controller/client'
+import type { WorkspaceId, WorkspaceView } from '@buddhilive/dsh-api-workspace-controller/client'
 import type {
   SessionPendingInteractionBase,
-} from '@deepseek-ai/dsh-client-ui-session/client'
-import type {} from '@deepseek-ai/dsh-schedule/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import { workspaceTitleOf } from '@deepseek-ai/dsh-util-workspace-path'
+} from '@buddhilive/dsh-client-ui-session/client'
+import type {} from '@buddhilive/dsh-schedule/client'
+import type { SessionId } from '@buddhilive/dsh-session/types'
+import { workspaceTitleOf } from '@buddhilive/dsh-util-workspace-path'
 import {
   indexSubagentDescendants, type SubagentDescendantSummary,
 } from './subagent-lineage.ts'

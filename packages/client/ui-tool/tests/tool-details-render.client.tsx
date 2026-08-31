@@ -1,11 +1,11 @@
 /** Test adapter for the production conversation.details.tool registration. */
-import type { SessionLiveEventEntry } from '@deepseek-ai/dsh-api-session-controller/client'
-import { isJsonValue, type JsonValue } from '@deepseek-ai/dsh-util-values'
+import type { SessionLiveEventEntry } from '@buddhilive/dsh-api-session-controller/client'
+import { isJsonValue, type JsonValue } from '@buddhilive/dsh-util-values'
 import type {
   ChatConversationViewNode, ChatSnapshot, ConversationNode, DetailsSlotProps,
   DetailsToolOwnerProps, RunningToolCall, ToolResultNode,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
-import type { TranslateNS } from '@deepseek-ai/dsh-client-ui-slots'
+} from '@buddhilive/dsh-client-ui-chat/client'
+import type { TranslateNS } from '@buddhilive/dsh-client-ui-slots'
 import { ToolDetails } from '../src/client/tool/ToolDetails.tsx'
 
 type TrajectorySnapshot = Parameters<Parameters<DetailsSlotProps['useTrajectory']>[0]>[0]

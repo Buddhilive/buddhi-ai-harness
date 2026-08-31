@@ -9,12 +9,12 @@
   name: './mock-delegating-llm.ts'
 
 - id: subagent
-  name: '@deepseek-ai/dsh-subagent'
+  name: '@buddhilive/dsh-subagent'
 
 # providerName is omitted: the composition exercises the shipped default
 # (`dsh-sdk`) through the real Loader.
 - id: subagent-dsh-sdk
-  name: '@deepseek-ai/dsh-subagent-dsh-sdk'
+  name: '@buddhilive/dsh-subagent-dsh-sdk'
   config:
     profile: sdk
     patches: !!js JSON.parse(process.env.DSH_TEST_CHILD_PATCHES ?? '[]')
@@ -26,7 +26,7 @@
       DSH_TEST_CHILD_FAILURE: !!js String(process.env.DSH_TEST_CHILD_FAILURE ?? '')
 
 - id: subagent-model-selection-settings
-  name: '@deepseek-ai/dsh-tool-subagent/model-selection-settings'
+  name: '@buddhilive/dsh-tool-subagent/model-selection-settings'
   config:
     enabled: true
     allowedModels:
@@ -45,7 +45,7 @@
     maxDepth: 'provider-managed'
 
 - id: agent-spine
-  name: '@deepseek-ai/dsh-agent-spine-demo'
+  name: '@buddhilive/dsh-agent-spine-demo'
   config:
     agents:
       - id: main
@@ -56,10 +56,10 @@
     workspaceContext: false
 
 - id: persistence
-  name: '@deepseek-ai/dsh-session-persistence-jsonl'
+  name: '@buddhilive/dsh-session-persistence-jsonl'
   config:
     root: './.sessions'
     compression: 'none'
 
 - id: checkpoint-policy
-  name: '@deepseek-ai/dsh-session-checkpoint-policy'
+  name: '@buddhilive/dsh-session-checkpoint-policy'

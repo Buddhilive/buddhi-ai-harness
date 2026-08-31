@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-goal-round-driver",
+  "name": "@buddhilive/dsh-goal-round-driver",
   "description": "Race-fenced same-session goal-round driver",
   "version": "0.1.2-alpha.2",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
     "directory": "packages/goal/goal-round-driver"
   },
   "type": "module",
@@ -32,24 +32,24 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-goal": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
+    "@buddhilive/dsh-agent": "workspace:^",
+    "@buddhilive/dsh-goal": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-llm": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
     "@deepseek-ai/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:^",
-    "@deepseek-ai/dsh-goal": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
+    "@buddhilive/dsh-agent": "workspace:^",
+    "@buddhilive/dsh-agent-loop": "workspace:^",
+    "@buddhilive/dsh-agent-loop-testkit": "workspace:^",
+    "@buddhilive/dsh-goal": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-llm": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
+    "@buddhilive/dsh-system-prompt": "workspace:^",
+    "@buddhilive/dsh-tools": "workspace:^",
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^"
+    "@buddhilive/dsh-session-projection": "workspace:^"
   }
 }

@@ -11,16 +11,16 @@
 
 import { describe, expect, it } from 'vitest'
 import { Context } from '@deepseek-ai/cordis'
-import LlmRuntime from '@deepseek-ai/dsh-llm'
-import { createUserMessage, LlmAdapter } from '@deepseek-ai/dsh-llm'
-import type { GenerateOptions, StreamChunk } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
+import LlmRuntime from '@buddhilive/dsh-llm'
+import { createUserMessage, LlmAdapter } from '@buddhilive/dsh-llm'
+import type { GenerateOptions, StreamChunk } from '@buddhilive/dsh-llm'
+import SessionStore, { SessionId } from '@buddhilive/dsh-session'
+import SystemPrompt from '@buddhilive/dsh-system-prompt'
+import ToolRuntime from '@buddhilive/dsh-tools'
+import AgentRegistry, { type Agent } from '@buddhilive/dsh-agent'
 
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import AgentLoop from '@buddhilive/dsh-agent-loop'
+import SessionProjectionRegistry from '@buddhilive/dsh-session-projection'
 import fc from 'fast-check'
 
 /** A never-exhausting adapter: every model call returns the same short reply. */

@@ -3,7 +3,7 @@ description: "Child-scoped report tool for users and maintainers composing or de
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-tool-subagent-report
+# @buddhilive/dsh-tool-subagent-report
 
 English | [中文](README.zh.md)
 
@@ -32,20 +32,20 @@ Mount this package in a composition with continuable in-process children whose f
 Load the subagent service, a backend, the delegation tool in `continuable` mode, and this package:
 
 ```yaml
-- name: '@deepseek-ai/dsh-subagent'
-- name: '@deepseek-ai/dsh-subagent-spawn-in-process'
-- name: '@deepseek-ai/dsh-tool-subagent'
+- name: '@buddhilive/dsh-subagent'
+- name: '@buddhilive/dsh-subagent-spawn-in-process'
+- name: '@buddhilive/dsh-tool-subagent'
   config:
     provider: spawn
     backgroundMode: continuable
-- name: '@deepseek-ai/dsh-tool-subagent-report'
+- name: '@buddhilive/dsh-tool-subagent-report'
 ```
 
 | Field | Default | Meaning |
 |---|---|---|
 | `reportDelivery` | `next-step` | Parent scheduling for accepted reports: `next-step` wakes the parent at its nearest step boundary; `quiet` adds the same context without waking it |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-tool-subagent-report) is the exhaustive source for every accepted field and its JSDoc.
+The generated [configuration catalog](../../../docs/config-catalog.md#buddhilivedsh-tool-subagent-report) is the exhaustive source for every accepted field and its JSDoc.
 
 ### What the child gets
 
@@ -100,8 +100,8 @@ Read these pages when the package-level contract is not enough; they move from t
 - [Subagent subsystem](../../../docs/subsystems/subagent.md) — continuable children, activations, and the `reportFrom`/`reportDelivery` contract.
 - [dsh-tool-subagent-control](../tool-subagent-control/README.md) — the parent-to-child control tools.
 - [dsh-tool-subagent](../tool-subagent/README.md) — the delegation tool that starts continuable children.
-- [Generated tool catalog](../../../docs/tool-catalog.md#deepseek-aidsh-tool-subagent-report) — the `report` schema.
-- [Generated configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-tool-subagent-report) — every accepted config field.
+- [Generated tool catalog](../../../docs/tool-catalog.md#buddhilivedsh-tool-subagent-report) — the `report` schema.
+- [Generated configuration catalog](../../../docs/config-catalog.md#buddhilivedsh-tool-subagent-report) — every accepted config field.
 
 -----
 
@@ -112,7 +112,7 @@ Read these pages when the package-level contract is not enough; they move from t
 
 #### What the model sees
 
-The generated [`report` schema](../../../docs/tool-catalog.md#deepseek-aidsh-tool-subagent-report): one required `output` string. Its description states that the child must report once before finishing, that reporting reaches only the Agent that started the child, and that it does not end the turn. It carries no recipient or delivery-mode parameter. The separate `tool:report` prompt section repeats the obligation outside the schema.
+The generated [`report` schema](../../../docs/tool-catalog.md#buddhilivedsh-tool-subagent-report): one required `output` string. Its description states that the child must report once before finishing, that reporting reaches only the Agent that started the child, and that it does not end the turn. It carries no recipient or delivery-mode parameter. The separate `tool:report` prompt section repeats the obligation outside the schema.
 
 #### Token effect
 

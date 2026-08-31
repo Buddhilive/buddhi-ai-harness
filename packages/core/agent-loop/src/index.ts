@@ -2,15 +2,15 @@
  * Concrete agent-loop plugin: creates scoped ReactLoopAgents, publishes them
  * through the agent/session registries, and owns their ordered teardown.
  *
- * @module @deepseek-ai/dsh-agent-loop
+ * @module @buddhilive/dsh-agent-loop
  */
 
 import { Context, FiberState, Service } from '@deepseek-ai/cordis'
 import { randomUUID } from 'node:crypto'
 import z from '@deepseek-ai/schemastery'
 import { z as zod } from 'zod'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import { emitAgentEvent } from '@deepseek-ai/dsh-agent'
+import { brandString } from '@buddhilive/dsh-brand'
+import { emitAgentEvent } from '@buddhilive/dsh-agent'
 import type {
   Agent,
   AgentFactory,
@@ -21,16 +21,16 @@ import type {
   ResumeAgentOptions,
   SessionStartSource,
   TurnBoundaryProjection,
-} from '@deepseek-ai/dsh-agent'
-import { errorChain, ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type {} from '@deepseek-ai/dsh-settings'
-import { SessionPreparation } from '@deepseek-ai/dsh-session'
-import type { Session, SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-system-prompt'
-import type {} from '@deepseek-ai/dsh-tools'
-import type {} from '@deepseek-ai/dsh-session-projection'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
-import type { SessionPersistence } from '@deepseek-ai/dsh-session-persistence'
+} from '@buddhilive/dsh-agent'
+import { errorChain, ReasoningEffortId } from '@buddhilive/dsh-llm'
+import type {} from '@buddhilive/dsh-settings'
+import { SessionPreparation } from '@buddhilive/dsh-session'
+import type { Session, SessionHeader, SessionId } from '@buddhilive/dsh-session'
+import type {} from '@buddhilive/dsh-system-prompt'
+import type {} from '@buddhilive/dsh-tools'
+import type {} from '@buddhilive/dsh-session-projection'
+import type { ProjectionDefinition } from '@buddhilive/dsh-session-projection'
+import type { SessionPersistence } from '@buddhilive/dsh-session-persistence'
 import { ReactLoopAgent } from './agent.ts'
 import { DEFAULT_MAX_PARALLEL_TOOL_CALLS } from './constants.ts'
 

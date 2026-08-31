@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-acp",
+  "name": "@buddhilive/dsh-acp",
   "description": "Automation-only Agent Client Protocol server for driving DeepSeek Harness agents over JSON-RPC stdio",
   "version": "0.1.2-alpha.2",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
     "directory": "packages/acp/acp"
   },
   "type": "module",
@@ -33,41 +33,41 @@
   "license": "MIT",
   "dependencies": {
     "@agentclientprotocol/sdk": "1.4.0",
-    "@deepseek-ai/dsh-brand": "workspace:^",
+    "@buddhilive/dsh-brand": "workspace:^",
     "@deepseek-ai/schemastery": "workspace:^"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-mcp-client": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-token-meter": "workspace:^",
-    "@deepseek-ai/dsh-user-approval": "workspace:^"
+    "@buddhilive/dsh-agent": "workspace:^",
+    "@buddhilive/dsh-attachment": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-llm": "workspace:^",
+    "@buddhilive/dsh-mcp-client": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
+    "@buddhilive/dsh-session-persistence": "workspace:^",
+    "@buddhilive/dsh-token-meter": "workspace:^",
+    "@buddhilive/dsh-user-approval": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-token-meter": {
+    "@buddhilive/dsh-token-meter": {
       "optional": true
     }
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-mcp-client": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence-jsonl": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-token-meter": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/dsh-user-approval": "workspace:^"
+    "@buddhilive/dsh-agent": "workspace:^",
+    "@buddhilive/dsh-agent-loop": "workspace:^",
+    "@buddhilive/dsh-agent-loop-testkit": "workspace:^",
+    "@buddhilive/dsh-attachment": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-llm": "workspace:^",
+    "@buddhilive/dsh-mcp-client": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
+    "@buddhilive/dsh-session-persistence": "workspace:^",
+    "@buddhilive/dsh-session-persistence-jsonl": "workspace:^",
+    "@buddhilive/dsh-session-projection": "workspace:^",
+    "@buddhilive/dsh-token-meter": "workspace:^",
+    "@buddhilive/dsh-tools": "workspace:^",
+    "@buddhilive/dsh-user-approval": "workspace:^"
   }
 }

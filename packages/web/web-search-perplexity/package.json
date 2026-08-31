@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-web-search-perplexity",
+  "name": "@buddhilive/dsh-web-search-perplexity",
   "description": "Perplexity-backed search provider for the DeepSeek Harness web capability seam (ctx.web)",
   "version": "0.1.2-alpha.2",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
     "directory": "packages/web/web-search-perplexity"
   },
   "type": "module",
@@ -32,18 +32,18 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-launch-environment": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-web": "workspace:^",
+    "@buddhilive/dsh-launch-environment": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-web": "workspace:^",
     "@deepseek-ai/cordis": "workspace:^"
   },
   "dependencies": {
     "@deepseek-ai/schemastery": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-launch-environment": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-web": "workspace:^",
+    "@buddhilive/dsh-launch-environment": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-web": "workspace:^",
     "@deepseek-ai/cordis": "workspace:^"
   }
 }

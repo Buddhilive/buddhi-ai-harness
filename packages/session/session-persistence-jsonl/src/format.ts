@@ -11,9 +11,9 @@
 import { join } from 'node:path'
 import {
   decodeSeqRanges, decodeStorageRecord, encodeSeqRanges, packChunkRuns, SESSION_FORMAT_VERSION,
-} from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionHeader, SessionId, StorageRecord } from '@deepseek-ai/dsh-session'
-import { SessionFormatUnsupportedError, sessionFormatVersionRefusal } from '@deepseek-ai/dsh-session-persistence'
+} from '@buddhilive/dsh-session'
+import type { SessionEvent, SessionHeader, SessionId, StorageRecord } from '@buddhilive/dsh-session'
+import { SessionFormatUnsupportedError, sessionFormatVersionRefusal } from '@buddhilive/dsh-session-persistence'
 
 /** Physical encoding selected for JSONL session artifacts. */
 export type JsonlCompression = 'zstd' | 'none'

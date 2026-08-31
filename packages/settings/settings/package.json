@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-settings",
+  "name": "@buddhilive/dsh-settings",
   "description": "Abstract user-settings seam (ctx.settings) for the DeepSeek Harness",
   "version": "0.1.2-alpha.2",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
     "directory": "packages/settings/settings"
   },
   "type": "module",
@@ -38,19 +38,19 @@
   "license": "MIT",
   "peerDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
+    "@buddhilive/dsh-brand": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
     "@deepseek-ai/schemastery": "workspace:^"
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
+    "@buddhilive/dsh-brand": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
     "@deepseek-ai/schemastery": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/dsh-util-values": "workspace:^"
+    "@buddhilive/dsh-util-values": "workspace:^"
   }
 }

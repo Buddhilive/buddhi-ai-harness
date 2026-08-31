@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-e2b",
+  "name": "@buddhilive/dsh-e2b",
   "description": "Shared E2B sandbox lifecycle for DeepSeek Harness provider adapters",
   "version": "0.1.2-alpha.2",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
     "directory": "packages/e2b/e2b"
   },
   "type": "module",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^"
+    "@buddhilive/dsh-invariants": "workspace:^"
   },
   "dependencies": {
     "@deepseek-ai/schemastery": "workspace:^",
@@ -41,19 +41,19 @@
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-app-boot": "workspace:^",
-    "@deepseek-ai/dsh-bash-local": "workspace:^",
-    "@deepseek-ai/dsh-fs-e2b": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-loader-smoke": "workspace:^",
-    "@deepseek-ai/dsh-lsp": "workspace:^",
-    "@deepseek-ai/dsh-lsp-stdio": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-subprocess-e2b": "workspace:^",
-    "@deepseek-ai/dsh-terminal": "workspace:^",
-    "@deepseek-ai/dsh-terminal-bash": "workspace:^"
+    "@buddhilive/dsh-agent": "workspace:^",
+    "@buddhilive/dsh-app-boot": "workspace:^",
+    "@buddhilive/dsh-bash-local": "workspace:^",
+    "@buddhilive/dsh-fs-e2b": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-loader-smoke": "workspace:^",
+    "@buddhilive/dsh-lsp": "workspace:^",
+    "@buddhilive/dsh-lsp-stdio": "workspace:^",
+    "@buddhilive/dsh-sandbox-policy": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
+    "@buddhilive/dsh-session-projection": "workspace:^",
+    "@buddhilive/dsh-subprocess-e2b": "workspace:^",
+    "@buddhilive/dsh-terminal": "workspace:^",
+    "@buddhilive/dsh-terminal-bash": "workspace:^"
   }
 }

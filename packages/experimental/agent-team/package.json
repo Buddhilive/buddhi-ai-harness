@@ -1,11 +1,11 @@
 {
-  "name": "@deepseek-ai/dsh-experimental-agent-team",
+  "name": "@buddhilive/dsh-experimental-agent-team",
   "description": "Implicit-root Agent Teams roster, durable peer mailbox, and shared task DAG",
   "version": "0.1.2-alpha.2",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
     "directory": "packages/experimental/agent-team"
   },
   "type": "module",
@@ -51,37 +51,37 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
+    "@buddhilive/dsh-brand": "workspace:^",
     "@deepseek-ai/schemastery": "workspace:^",
     "zod": "^4.4.3"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-subagent": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^"
+    "@buddhilive/dsh-agent": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-llm": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
+    "@buddhilive/dsh-session-persistence": "workspace:^",
+    "@buddhilive/dsh-session-projection": "workspace:^",
+    "@buddhilive/dsh-subagent": "workspace:^",
+    "@buddhilive/dsh-typert-protocol": "workspace:^"
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence-jsonl": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence-sqlite": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-session-query": "workspace:^",
-    "@deepseek-ai/dsh-subagent": "workspace:^",
-    "@deepseek-ai/dsh-subagent-fork-in-process": "workspace:^",
-    "@deepseek-ai/dsh-subagent-spawn-in-process": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^"
+    "@buddhilive/dsh-agent": "workspace:^",
+    "@buddhilive/dsh-agent-loop": "workspace:^",
+    "@buddhilive/dsh-agent-loop-testkit": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-llm": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
+    "@buddhilive/dsh-session-persistence": "workspace:^",
+    "@buddhilive/dsh-session-persistence-jsonl": "workspace:^",
+    "@buddhilive/dsh-session-persistence-sqlite": "workspace:^",
+    "@buddhilive/dsh-session-projection": "workspace:^",
+    "@buddhilive/dsh-session-query": "workspace:^",
+    "@buddhilive/dsh-subagent": "workspace:^",
+    "@buddhilive/dsh-subagent-fork-in-process": "workspace:^",
+    "@buddhilive/dsh-subagent-spawn-in-process": "workspace:^",
+    "@buddhilive/dsh-typert-protocol": "workspace:^"
   }
 }

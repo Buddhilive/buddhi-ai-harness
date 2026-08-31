@@ -1,5 +1,5 @@
 /** Per-session Conversation store shared by the shell body and header. */
-import { defineStore, type EngineStoreHandle } from '@deepseek-ai/dsh-client-store'
+import { defineStore, type EngineStoreHandle } from '@buddhilive/dsh-client-store'
 import type { ConversationStoreState } from './contract/views.ts'
 
 /** Declared write set for the Conversation shell. */

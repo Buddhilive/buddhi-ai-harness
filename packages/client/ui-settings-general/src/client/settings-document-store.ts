@@ -2,9 +2,9 @@
 
 import type { Context as ClientContext } from '@deepseek-ai/cordis'
 // Type-only: pulls the ctx.remote merge into this program.
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
-import { createSnapshotStore, type SnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type { SettingsDescribeFace } from '@deepseek-ai/dsh-client-ui-settings/client'
+import type {} from '@buddhilive/dsh-api-remotes/client'
+import { createSnapshotStore, type SnapshotStore } from '@buddhilive/dsh-client-store'
+import type { SettingsDescribeFace } from '@buddhilive/dsh-client-ui-settings/client'
 
 /** Browser state of the Host-owned settings document. */
 export interface SettingsDocumentState {

@@ -1,21 +1,21 @@
 // @vitest-environment jsdom
 /** Chat inject factories exercised over independently mounted Conversation and Chat plugins. */
 import { describe, expect, it, vi } from 'vitest'
-import { AttachmentId } from '@deepseek-ai/dsh-attachment'
-import type { ISession } from '@deepseek-ai/dsh-api-session-controller/client'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
+import { AttachmentId } from '@buddhilive/dsh-attachment'
+import type { ISession } from '@buddhilive/dsh-api-session-controller/client'
+import { LocaleRuntime } from '@buddhilive/dsh-client-locale/client'
 import {
   RemoteError, SlotTestRuntime, TestRemote, stubSettingsScope, usePinnedBrowserLanguages,
-} from '@deepseek-ai/dsh-client-test-runtime'
-import type { SessionBehaviorOverrides } from '@deepseek-ai/dsh-client-test-runtime'
-import type { ClientRemote } from '@deepseek-ai/dsh-api-remotes/client'
+} from '@buddhilive/dsh-client-test-runtime'
+import type { SessionBehaviorOverrides } from '@buddhilive/dsh-client-test-runtime'
+import type { ClientRemote } from '@buddhilive/dsh-api-remotes/client'
 import {
   apply as applyConversation, inject as injectConversation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@buddhilive/dsh-client-ui-conversation/client'
 import {
   apply as applyChat, inject as injectChat, type ChatViewInjected, type DetailsInjected,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+} from '@buddhilive/dsh-client-ui-chat/client'
+import type { SessionId } from '@buddhilive/dsh-session/types'
 import { createChatStore } from '../src/client/stores.ts'
 
 usePinnedBrowserLanguages('zh-CN')

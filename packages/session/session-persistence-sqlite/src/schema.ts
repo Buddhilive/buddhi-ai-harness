@@ -1,6 +1,6 @@
 /**
  * SQLite schema ownership and durable-row validation.
- * @module @deepseek-ai/dsh-session-persistence-sqlite/schema
+ * @module @buddhilive/dsh-session-persistence-sqlite/schema
  */
 
 import { randomUUID } from 'node:crypto'
@@ -8,11 +8,11 @@ import { isAbsolute } from 'node:path'
 import { performance } from 'node:perf_hooks'
 import type { DatabaseSync } from 'node:sqlite'
 import { setTimeout as delay } from 'node:timers/promises'
-import { brandString } from '@deepseek-ai/dsh-brand'
+import { brandString } from '@buddhilive/dsh-brand'
 import {
   type SessionHeader,
   type SessionId,
-} from '@deepseek-ai/dsh-session'
+} from '@buddhilive/dsh-session'
 import { sql } from './sql.ts'
 
 /** Current physical-record schema with packed and compressed event rows. */

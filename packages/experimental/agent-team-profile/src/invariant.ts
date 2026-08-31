@@ -1,12 +1,12 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-experimental-agent-team-profile`.
- * @module @deepseek-ai/dsh-experimental-agent-team-profile/invariant
+ * Package-owned invariant companion for `@buddhilive/dsh-experimental-agent-team-profile`.
+ * @module @buddhilive/dsh-experimental-agent-team-profile/invariant
  */
 
 import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { InvariantInstaller } from '@buddhilive/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-experimental-agent-team-profile'
+const PACKAGE_NAME = '@buddhilive/dsh-experimental-agent-team-profile'
 
 /** Cordis companion plugin name. */
 export const name = 'agent-team-profile-invariant'

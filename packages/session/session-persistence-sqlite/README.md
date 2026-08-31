@@ -3,7 +3,7 @@ description: "SQLite session persistence for deployments and maintainers choosin
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-session-persistence-sqlite
+# @buddhilive/dsh-session-persistence-sqlite
 
 English | [中文](README.zh.md)
 
@@ -42,8 +42,8 @@ The disk cost buys a structured, queryable view of session history: external too
 Load the session service first, then mount the provider with a database path. Use an absolute path when the location must not depend on the process working directory; relative paths resolve from that directory. `:memory:` is valid for an in-process database whose contents disappear with the process.
 
 ```yaml
-- name: '@deepseek-ai/dsh-session'
-- name: '@deepseek-ai/dsh-session-persistence-sqlite'
+- name: '@buddhilive/dsh-session'
+- name: '@buddhilive/dsh-session-persistence-sqlite'
   config:
     path: /absolute/path/to/sessions.db
 ```
@@ -56,7 +56,7 @@ Load the session service first, then mount the provider with a database path. Us
 | `preparedSessionCacheSize` | `5` | Cold session preparations retained for resume reuse |
 | `writeBatchMaxDelayMs` | `200` | Fixed live-event coalescing window, in milliseconds |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-session-persistence-sqlite) is the exhaustive source for every accepted field and its JSDoc.
+The generated [configuration catalog](../../../docs/config-catalog.md#buddhilivedsh-session-persistence-sqlite) is the exhaustive source for every accepted field and its JSDoc.
 
 ### Migrating existing JSONL sessions
 
@@ -143,7 +143,7 @@ Read these pages when the package-level contract is not enough. They move from t
 
 - [Session persistence subsystem](../../../docs/subsystems/persistence.md) — backend-neutral service semantics and provider relationships.
 - [Session package map](../README.md) — adjacent persistence, projection, title, and telemetry packages.
-- [Generated configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-session-persistence-sqlite) — every accepted config field and its source declaration.
+- [Generated configuration catalog](../../../docs/config-catalog.md#buddhilivedsh-session-persistence-sqlite) — every accepted config field and its source declaration.
 - [SQLite physical chunk-row decision](../../../.agents/notes/implemented/architecture/2026-08-18-sqlite-physical-chunk-row-compression.md) — rationale, alternatives, and measurements behind the packed layout.
 - [Persistence latency and page-size decision](../../../.agents/notes/implemented/architecture/2026-08-25-persistence-latency-and-page-size.md) — the 501-session benchmark and current storage trade-offs.
 

@@ -7,25 +7,25 @@ import type {
   TypertRemoteEventInvocation,
   TypertRemoteEventOutcome,
   TypertRemoteEventSource,
-} from '@deepseek-ai/dsh-api-gateway'
-import { Deque } from '@deepseek-ai/dsh-deque'
-import { carrierKeyOf } from '@deepseek-ai/dsh-scope'
-import { isJsonValue, type JsonValue } from '@deepseek-ai/dsh-util-values'
+} from '@buddhilive/dsh-api-gateway'
+import { Deque } from '@buddhilive/dsh-deque'
+import { carrierKeyOf } from '@buddhilive/dsh-scope'
+import { isJsonValue, type JsonValue } from '@buddhilive/dsh-util-values'
 import { API_REMOTE_FORWARDED_EVENTS } from './remote-events.ts'
 
 // The owner packages' client-safe `./types` exports carry the cordis `Events`
 // declarations for every allowlisted event. Pulling them into this face is what
 // makes the shape assertion below judge real signatures rather than an empty
 // event vocabulary.
-import type {} from '@deepseek-ai/dsh-commands/types'
-import type {} from '@deepseek-ai/dsh-cordis-host-runner/types'
-import type {} from '@deepseek-ai/dsh-credentials/types'
-import type {} from '@deepseek-ai/dsh-llm/types'
-import type {} from '@deepseek-ai/dsh-agent-presets/types'
-import type {} from '@deepseek-ai/dsh-settings/types'
-import type {} from '@deepseek-ai/dsh-user-approval'
-import type {} from '@deepseek-ai/dsh-user-questions'
-export type {} from '@deepseek-ai/dsh-api-session-controller/types'
+import type {} from '@buddhilive/dsh-commands/types'
+import type {} from '@buddhilive/dsh-cordis-host-runner/types'
+import type {} from '@buddhilive/dsh-credentials/types'
+import type {} from '@buddhilive/dsh-llm/types'
+import type {} from '@buddhilive/dsh-agent-presets/types'
+import type {} from '@buddhilive/dsh-settings/types'
+import type {} from '@buddhilive/dsh-user-approval'
+import type {} from '@buddhilive/dsh-user-questions'
+export type {} from '@buddhilive/dsh-api-session-controller/types'
 
 export { API_REMOTE_FORWARDED_EVENTS } from './remote-events.ts'
 export type { ApiRemoteForwardedEvent } from './types.ts'

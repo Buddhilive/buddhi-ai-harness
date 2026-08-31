@@ -25,8 +25,8 @@ import { useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
 import type {
   CredentialInfo, SettingsNamespaceView, SettingsPathOpView,
-} from '@deepseek-ai/dsh-api-remotes/client'
-import type { JsonValue } from '@deepseek-ai/dsh-util-values'
+} from '@buddhilive/dsh-api-remotes/client'
+import type { JsonValue } from '@buddhilive/dsh-util-values'
 import {
   DeepSeekModelsEditor, modelDrafts, validateDeepSeekModels,
 } from './DeepSeekModelsEditor.tsx'
@@ -367,7 +367,7 @@ export function ProviderEditor(props: ProviderEditorProps): ReactNode {
               className={styles['input']}
               type="text"
               value={stringAt(draft, 'baseURL') ?? ''}
-              placeholder={stringAt(fallback, 'baseURL') ?? 'http://localhost:8765/v1'}
+              placeholder={stringAt(fallback, 'baseURL') ?? t('baseUrlDefault')}
               aria-label={t('buddhiStudioUrl')}
               disabled={disabled}
               onChange={(event) => {

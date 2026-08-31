@@ -1,14 +1,14 @@
 /**
  * Default model selection for an Agent without a session-specific selection.
  *
- * @module @deepseek-ai/dsh-agent-default-model
+ * @module @buddhilive/dsh-agent-default-model
  */
 
 import { Context, Service } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
-import type { ModelSelection } from '@deepseek-ai/dsh-agent'
-import { ReasoningEffortId } from '@deepseek-ai/dsh-llm'
-import type {} from '@deepseek-ai/dsh-settings'
+import type { ModelSelection } from '@buddhilive/dsh-agent'
+import { ReasoningEffortId } from '@buddhilive/dsh-llm'
+import type {} from '@buddhilive/dsh-settings'
 
 declare module '@deepseek-ai/cordis' {
   interface Context {

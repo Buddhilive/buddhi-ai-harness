@@ -1,9 +1,9 @@
 // @vitest-environment jsdom
 import { Context } from '@deepseek-ai/cordis'
-import { createScope, scopeOf } from '@deepseek-ai/dsh-api-session-controller/client'
-import InvariantRegistry from '@deepseek-ai/dsh-invariants'
-import type { ToolCallId } from '@deepseek-ai/dsh-llm'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import { createScope, scopeOf } from '@buddhilive/dsh-api-session-controller/client'
+import InvariantRegistry from '@buddhilive/dsh-invariants'
+import type { ToolCallId } from '@buddhilive/dsh-llm'
+import type { SessionId } from '@buddhilive/dsh-session/types'
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { ApprovalPanel } from '../src/client/ApprovalPanel.tsx'

@@ -2,20 +2,20 @@
 
 import { randomUUID } from 'node:crypto'
 import type { Context } from '@deepseek-ai/cordis'
-import { brandString } from '@deepseek-ai/dsh-brand'
-import type { Agent, ModelSelection as AgentModelSelection } from '@deepseek-ai/dsh-agent'
-import { AttachmentError, admitEncodedImages } from '@deepseek-ai/dsh-attachment'
-import type { ImageAttachmentRef } from '@deepseek-ai/dsh-attachment'
+import { brandString } from '@buddhilive/dsh-brand'
+import type { Agent, ModelSelection as AgentModelSelection } from '@buddhilive/dsh-agent'
+import { AttachmentError, admitEncodedImages } from '@buddhilive/dsh-attachment'
+import type { ImageAttachmentRef } from '@buddhilive/dsh-attachment'
 import {
   ReasoningEffortId, createUserMessage, freezeMessage,
-} from '@deepseek-ai/dsh-llm'
-import type { ContentBlock, MessageSource } from '@deepseek-ai/dsh-llm'
-import type { SessionEvent, SessionHeader, SessionId, UserMessage } from '@deepseek-ai/dsh-session'
-import { SessionQueryError, type SessionObservation } from '@deepseek-ai/dsh-session-query'
-import { SessionTitleInvalidError } from '@deepseek-ai/dsh-session-title'
-import { canonicalClientTimeZone } from '@deepseek-ai/dsh-util-time'
-import { RemoteError, remoteErrorOf } from '@deepseek-ai/dsh-typert-protocol'
-import type { Workspace } from '@deepseek-ai/dsh-workspace'
+} from '@buddhilive/dsh-llm'
+import type { ContentBlock, MessageSource } from '@buddhilive/dsh-llm'
+import type { SessionEvent, SessionHeader, SessionId, UserMessage } from '@buddhilive/dsh-session'
+import { SessionQueryError, type SessionObservation } from '@buddhilive/dsh-session-query'
+import { SessionTitleInvalidError } from '@buddhilive/dsh-session-title'
+import { canonicalClientTimeZone } from '@buddhilive/dsh-util-time'
+import { RemoteError, remoteErrorOf } from '@buddhilive/dsh-typert-protocol'
+import type { Workspace } from '@buddhilive/dsh-workspace'
 import {
   ApiSessionAgentController,
   ApiSessionCwdConflict,

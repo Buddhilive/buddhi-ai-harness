@@ -3,14 +3,14 @@
  * row both the listing and the browser catalog answer with, plus the
  * browser-facing control surface's prompt, receipts, and failures.
  *
- * @module @deepseek-ai/dsh-subagent/control-types
+ * @module @buddhilive/dsh-subagent/control-types
  */
 
-import type { EncodedImageAttachment } from '@deepseek-ai/dsh-attachment/types'
-import type { Branded } from '@deepseek-ai/dsh-brand'
-import type { MessageId } from '@deepseek-ai/dsh-llm/brand'
-import type { ContentBlock } from '@deepseek-ai/dsh-llm/types'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+import type { EncodedImageAttachment } from '@buddhilive/dsh-attachment/types'
+import type { Branded } from '@buddhilive/dsh-brand'
+import type { MessageId } from '@buddhilive/dsh-llm/brand'
+import type { ContentBlock } from '@buddhilive/dsh-llm/types'
+import type { SessionId } from '@buddhilive/dsh-session/types'
 
 /**
  * Client-minted identity of one browser prompt, persisted on the exact accepted
@@ -140,7 +140,7 @@ export interface SubagentInterruptReceipt {
  * `subagent/not-resumable` and `subagent/delivery-unavailable` for a one-shot
  * address it refuses before the call, so both planes read one vocabulary.
  */
-declare module '@deepseek-ai/dsh-typert-protocol' {
+declare module '@buddhilive/dsh-typert-protocol' {
   interface RemoteErrorDetailsMap {
     /** A browser-supplied zone is neither UTC nor a canonical IANA name. */
     'subagent/invalid-time-zone': { readonly value: string }

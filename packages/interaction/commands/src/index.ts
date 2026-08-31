@@ -1,18 +1,18 @@
 /**
  * Plugin-owned human-command registry shared by interactive UI adapters.
- * @module @deepseek-ai/dsh-commands
+ * @module @buddhilive/dsh-commands
  */
 
 import { Context } from '@deepseek-ai/cordis'
-import { randomUUID } from '@deepseek-ai/dsh-util-crypto'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { AttachmentError, admitEncodedImages } from '@deepseek-ai/dsh-attachment'
-import type { EncodedImageAttachment } from '@deepseek-ai/dsh-attachment/types'
-import type { ImageBlock } from '@deepseek-ai/dsh-llm'
-import { NamedEntries, ScopedLayers } from '@deepseek-ai/dsh-scope'
-import type { ScopeKey, ScopeLayer } from '@deepseek-ai/dsh-scope'
-import type { Session, SessionEvent, SessionEventMap } from '@deepseek-ai/dsh-session'
-import { TypertRemoteService, Remote } from '@deepseek-ai/dsh-typert-protocol'
+import { randomUUID } from '@buddhilive/dsh-util-crypto'
+import type { Agent } from '@buddhilive/dsh-agent'
+import { AttachmentError, admitEncodedImages } from '@buddhilive/dsh-attachment'
+import type { EncodedImageAttachment } from '@buddhilive/dsh-attachment/types'
+import type { ImageBlock } from '@buddhilive/dsh-llm'
+import { NamedEntries, ScopedLayers } from '@buddhilive/dsh-scope'
+import type { ScopeKey, ScopeLayer } from '@buddhilive/dsh-scope'
+import type { Session, SessionEvent, SessionEventMap } from '@buddhilive/dsh-session'
+import { TypertRemoteService, Remote } from '@buddhilive/dsh-typert-protocol'
 import { CommandId } from './brand.ts'
 import type {
   CommandDescriptor,

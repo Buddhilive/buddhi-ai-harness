@@ -1,10 +1,10 @@
 /**
  * Strict Session projection of the Schedule domain's active reminder set.
- * @module @deepseek-ai/dsh-schedule/projection
+ * @module @buddhilive/dsh-schedule/projection
  */
 
 import { z } from 'zod'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
+import type { ProjectionDefinition } from '@buddhilive/dsh-session-projection'
 import { applyScheduleChanges, decodeScheduleChange } from './domain.ts'
 import type { FoldedSchedules } from './domain.ts'
 import type { ScheduleChange, ScheduleId, ScheduleRecord } from './types.ts'
@@ -82,7 +82,7 @@ export const scheduleProjectionDefinition = {
   stateVersion: 1,
 } satisfies ProjectionDefinition<'schedule', ScheduleProjectionState>
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@buddhilive/dsh-session-projection/types' {
   interface SessionProjectionStateMap {
     schedule: ScheduleProjectionState
   }

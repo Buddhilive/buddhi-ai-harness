@@ -9,17 +9,17 @@ import type {
   LegacyConversationSlice, ModelRetryNode, RunningToolCall, SelectionTarget, SteeringMessageNode,
   ToolCallBlock, ToolResultNode, TurnErrorNode, TurnMaxTokensNode, UseChatNodeTurnData,
   TranscriptViewMode, UserMessageNode,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
+} from '@buddhilive/dsh-client-ui-chat/client'
 import type {
   SessionListState, SessionSnapshot,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { WorkspaceSnapshot } from '@deepseek-ai/dsh-api-workspace-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type { SessionPendingInteractionSnapshot } from '@deepseek-ai/dsh-client-ui-session/client'
-import { bindSnapshotSelector, makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import { EMPTY_CONVERSATION_SNAPSHOT } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import { zh as commonZh } from '@deepseek-ai/dsh-client-locale/src/locales/zh.ts'
+} from '@buddhilive/dsh-api-session-controller/client'
+import type { WorkspaceSnapshot } from '@buddhilive/dsh-api-workspace-controller/client'
+import type { SessionId } from '@buddhilive/dsh-session/types'
+import type { SessionPendingInteractionSnapshot } from '@buddhilive/dsh-client-ui-session/client'
+import { bindSnapshotSelector, makeTranslate } from '@buddhilive/dsh-client-test-runtime'
+import { createSnapshotStore } from '@buddhilive/dsh-client-store'
+import { EMPTY_CONVERSATION_SNAPSHOT } from '@buddhilive/dsh-client-ui-conversation/client'
+import { zh as commonZh } from '@buddhilive/dsh-client-locale/src/locales/zh.ts'
 import { createChatStore } from '../src/client/stores.ts'
 import { ChatView } from '../src/client/chat/ChatView.tsx'
 import { ChatNodeSeat } from '../src/client/chat/ChatNodeSeat.tsx'

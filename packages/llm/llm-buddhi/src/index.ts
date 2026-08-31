@@ -8,7 +8,7 @@
 
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
-import type { SettingsNamespace } from '@deepseek-ai/dsh-settings'
+import type { SettingsNamespace } from '@buddhilive/dsh-settings'
 import { BuddhiAdapter, resolveBaseURL, type BuddhiAdapterOptions } from './adapter.ts'
 
 export const name = 'llm-buddhi'
@@ -18,10 +18,15 @@ export const PROVIDER = 'buddhi-studio'
 export const SETTINGS_NS: SettingsNamespace = 'llm-buddhi' as SettingsNamespace
 
 export interface Config {
+  /** Base URL of the BuddhiAI Studio API. */
   baseURL?: string
+  /** Optional API key if BuddhiAI Studio requires authentication. */
   apiKey?: string
+  /** Optional environment variable reference for API key. */
   apiKeyEnv?: string
+  /** Default context window size in tokens. */
   defaultContextWindow?: number
+  /** Default maximum tokens to generate. */
   defaultMaxTokens?: number
 }
 

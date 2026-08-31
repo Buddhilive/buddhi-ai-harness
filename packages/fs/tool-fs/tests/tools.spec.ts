@@ -8,11 +8,11 @@ import { Context } from '@deepseek-ai/cordis'
 import { mkdirSync, mkdtempSync, realpathSync, rmSync, symlinkSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join, resolve, sep } from 'node:path'
-import { turnBoundaryProjectionDefinition } from '@deepseek-ai/dsh-agent-loop'
-import { ToolCallId } from '@deepseek-ai/dsh-llm'
-import SystemPrompt, { renderPrompt } from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime, { type ToolResult } from '@deepseek-ai/dsh-tools'
-import { FileSystem, FsError, FsTargetKey, FsVersion } from '@deepseek-ai/dsh-fs'
+import { turnBoundaryProjectionDefinition } from '@buddhilive/dsh-agent-loop'
+import { ToolCallId } from '@buddhilive/dsh-llm'
+import SystemPrompt, { renderPrompt } from '@buddhilive/dsh-system-prompt'
+import ToolRuntime, { type ToolResult } from '@buddhilive/dsh-tools'
+import { FileSystem, FsError, FsTargetKey, FsVersion } from '@buddhilive/dsh-fs'
 import type {
   FsDirEntry,
   FsEditOutcome,
@@ -22,17 +22,17 @@ import type {
   FsTarget,
   FsWriteIntent,
   FsWriteOutcome,
-} from '@deepseek-ai/dsh-fs'
-import * as FsPolicy from '@deepseek-ai/dsh-fs-observation-policy'
-import * as ToolFs from '@deepseek-ai/dsh-tool-fs'
+} from '@buddhilive/dsh-fs'
+import * as FsPolicy from '@buddhilive/dsh-fs-observation-policy'
+import * as ToolFs from '@buddhilive/dsh-tool-fs'
 import { STREAM_MIN_SIZE } from '../src/read.ts'
 import { formatReadOutput } from '../src/read-render.ts'
 import type { FileReadOutcome } from '../src/read-render.ts'
 import { sessionCwd } from '../src/session-cwd.ts'
-import ApprovalService from '@deepseek-ai/dsh-user-approval'
-import type { SandboxExecutionPolicy, SandboxMode } from '@deepseek-ai/dsh-sandbox'
-import SandboxPolicyService from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
+import ApprovalService from '@buddhilive/dsh-user-approval'
+import type { SandboxExecutionPolicy, SandboxMode } from '@buddhilive/dsh-sandbox'
+import SandboxPolicyService from '@buddhilive/dsh-sandbox-policy'
+import SessionProjectionRegistry from '@buddhilive/dsh-session-projection'
 
 const testToolSignal = new AbortController().signal
 

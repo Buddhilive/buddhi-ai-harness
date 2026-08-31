@@ -1,11 +1,11 @@
 {
-  "name": "@deepseek-ai/dsh-experimental-agent-team-profile",
+  "name": "@buddhilive/dsh-experimental-agent-team-profile",
   "description": "Private profile bundle enabling Agent Teams over dsh-base",
   "version": "0.1.2-alpha.2",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
     "directory": "packages/experimental/agent-team-profile"
   },
   "type": "module",
@@ -37,16 +37,16 @@
     }
   },
   "dependencies": {
-    "@deepseek-ai/dsh-experimental-agent-team": "workspace:^",
-    "@deepseek-ai/dsh-experimental-tool-agent-team": "workspace:^"
+    "@buddhilive/dsh-experimental-agent-team": "workspace:^",
+    "@buddhilive/dsh-experimental-tool-agent-team": "workspace:^"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
     "@deepseek-ai/cordis": "workspace:^"
   },
   "devDependencies": {
     "@deepseek-ai/cordis-plugin-include": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
     "@deepseek-ai/cordis": "workspace:^",
     "js-yaml": "^4.2.0"
   }

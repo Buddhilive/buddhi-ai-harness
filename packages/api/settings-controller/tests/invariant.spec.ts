@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { Context } from '@deepseek-ai/cordis'
-import InvariantRegistry from '@deepseek-ai/dsh-invariants'
+import InvariantRegistry from '@buddhilive/dsh-invariants'
 import * as SettingsControllerInvariant from '../src/invariant.ts'
 
 describe('api-settings-controller invariant companion', () => {
@@ -10,7 +10,7 @@ describe('api-settings-controller invariant companion', () => {
     await ctx.plugin(SettingsControllerInvariant)
 
     expect(() => {
-      ctx.invariants.register('@deepseek-ai/dsh-api-settings-controller', () => {})
+      ctx.invariants.register('@buddhilive/dsh-api-settings-controller', () => {})
     }).toThrow(/already registered/)
   })
 })

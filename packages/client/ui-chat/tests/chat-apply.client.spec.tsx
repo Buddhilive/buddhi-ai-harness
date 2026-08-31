@@ -2,24 +2,24 @@
 import { describe, expect, it, vi } from 'vitest'
 import {
   chatSnapshot, SlotTestRuntime, TestRemote, stubSettingsScope, usePinnedBrowserLanguages,
-} from '@deepseek-ai/dsh-client-test-runtime'
-import { LocaleRuntime } from '@deepseek-ai/dsh-client-locale/client'
-import { resolveSlotLabel } from '@deepseek-ai/dsh-client-ui-slots'
-import type { ObservableSnapshot } from '@deepseek-ai/dsh-client-store'
-import type { SessionBinding } from '@deepseek-ai/dsh-api-session-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
+} from '@buddhilive/dsh-client-test-runtime'
+import { LocaleRuntime } from '@buddhilive/dsh-client-locale/client'
+import { resolveSlotLabel } from '@buddhilive/dsh-client-ui-slots'
+import type { ObservableSnapshot } from '@buddhilive/dsh-client-store'
+import type { SessionBinding } from '@buddhilive/dsh-api-session-controller/client'
+import type { SessionId } from '@buddhilive/dsh-session/types'
 import {
   apply as applyConversation, inject as injectConversation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@buddhilive/dsh-client-ui-conversation/client'
 import {
   apply as applyChat, EMPTY_CHAT_SNAPSHOT, inject as injectChat,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
+} from '@buddhilive/dsh-client-ui-chat/client'
 import type {
   ChatNodeTurnDataInjected, ChatSnapshot, TranscriptViewRowInjected, UseChat,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
+} from '@buddhilive/dsh-client-ui-chat/client'
 import { CHAT_SETTINGS_NAMESPACE, type ChatSettings } from '../src/chat-settings.ts'
 
-declare module '@deepseek-ai/dsh-client-ui-conversation/client' {
+declare module '@buddhilive/dsh-client-ui-conversation/client' {
   interface ConversationTurnDataMap {
     metric: number
   }

@@ -3,7 +3,7 @@ description: "默认的无执行器、无 UI agent（智能体）主干，以一
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-agent-spine-demo
+# @buddhilive/dsh-agent-spine-demo
 
 [English](README.md) | 中文
 
@@ -46,12 +46,12 @@ kind: "package-reference"
 最小可用配置是：用工作区上下文预算挂载组合包，再加上 LLM 适配器与执行器：
 
 ```yaml
-- name: '@deepseek-ai/dsh-agent-spine-demo'
+- name: '@buddhilive/dsh-agent-spine-demo'
   config:
     workspaceContext:
       maxBytes: 4096
-- name: '@deepseek-ai/dsh-llm-deepseek'   # concrete adapter for ctx.llm
-- name: '@deepseek-ai/dsh-bash-local'     # executor for ctx.shell
+- name: '@buddhilive/dsh-llm-deepseek'   # concrete adapter for ctx.llm
+- name: '@buddhilive/dsh-bash-local'     # executor for ctx.shell
 ```
 
 `workspaceContext` 是唯一必填字段：给它一个字节预算，工作区文件就会加载进 agent 上下文；设 `false` 则得到隔离提示词。`agents` 默认为空，因此请传入你想运行的 agent——或者当你的入口按需创建 agent 时省略它（ACP 应用就是这样）。当 agent 回答第一个提示词且会话被保存时，说明配置成功。
@@ -75,7 +75,7 @@ kind: "package-reference"
 | `invariants` | 拥有者默认值 | 开发者设置：运行哪些包检查、过滤哪些包 |
 | `goals` | 不挂载 | agent 可创建并跨轮次跟踪的可选持久目标 |
 
-生成的[配置目录](../../../docs/config-catalog.zh.md#deepseek-aidsh-agent-spine-demo)是每个受支持字段及其源声明的穷尽式真源。
+生成的[配置目录](../../../docs/config-catalog.zh.md#buddhilivedsh-agent-spine-demo)是每个受支持字段及其源声明的穷尽式真源。
 
 ### 请求重试与计费
 
@@ -99,30 +99,30 @@ kind: "package-reference"
 
 ```text
 @deepseek-ai/cordis-plugin-timer      timer service (writes nothing to stdout)
-@deepseek-ai/dsh-llm                  abstract LLM service + content-block vocabulary
-@deepseek-ai/dsh-session              event-sourced session log + store
-@deepseek-ai/dsh-session-title        log-backed title service + deterministic fallback
-@deepseek-ai/dsh-system-prompt        prompt-section + tool-schema assembly
-@deepseek-ai/dsh-tools                registry + guarded pre/around/post/final-result pipeline
-@deepseek-ai/dsh-skill                skill provider registry
-@deepseek-ai/dsh-skill-filesystem     local filesystem skill provider
-@deepseek-ai/dsh-agent                agent registry + initiator scope + agent/* events
-@deepseek-ai/dsh-goal                 optional persisted same-session goal domain
-@deepseek-ai/dsh-tool-goal            optional model-facing goal controls
-@deepseek-ai/dsh-goal-round-driver    optional same-session goal-round driver
-@deepseek-ai/dsh-llm-retry            provider-routed request retry policy
-@deepseek-ai/dsh-jobs-local           generic background-job registry
-@deepseek-ai/dsh-invariants           configurable invariant registry service
-@deepseek-ai/dsh-session/invariant
-@deepseek-ai/dsh-agent/invariant
-@deepseek-ai/dsh-scope/invariant
-@deepseek-ai/dsh-agent-loop/invariant package-owned relational checks
-@deepseek-ai/dsh-shell-env            managed DSH_* shell environment for model shell calls (unless toolBash=false)
-@deepseek-ai/dsh-tool-bash            the model-facing bash schema (unless toolBash=false)
-@deepseek-ai/dsh-agent-instructions   AGENTS.md/CLAUDE.md workspace context loader
-@deepseek-ai/dsh-tool-skill           session-prefix skill catalog + model-facing loader schema
-@deepseek-ai/dsh-tool-jobs            job_output/job_list/job_kill schemas + completion notices
-@deepseek-ai/dsh-agent-loop           THE concrete loop (gets the forwarded `agents`)
+@buddhilive/dsh-llm                  abstract LLM service + content-block vocabulary
+@buddhilive/dsh-session              event-sourced session log + store
+@buddhilive/dsh-session-title        log-backed title service + deterministic fallback
+@buddhilive/dsh-system-prompt        prompt-section + tool-schema assembly
+@buddhilive/dsh-tools                registry + guarded pre/around/post/final-result pipeline
+@buddhilive/dsh-skill                skill provider registry
+@buddhilive/dsh-skill-filesystem     local filesystem skill provider
+@buddhilive/dsh-agent                agent registry + initiator scope + agent/* events
+@buddhilive/dsh-goal                 optional persisted same-session goal domain
+@buddhilive/dsh-tool-goal            optional model-facing goal controls
+@buddhilive/dsh-goal-round-driver    optional same-session goal-round driver
+@buddhilive/dsh-llm-retry            provider-routed request retry policy
+@buddhilive/dsh-jobs-local           generic background-job registry
+@buddhilive/dsh-invariants           configurable invariant registry service
+@buddhilive/dsh-session/invariant
+@buddhilive/dsh-agent/invariant
+@buddhilive/dsh-scope/invariant
+@buddhilive/dsh-agent-loop/invariant package-owned relational checks
+@buddhilive/dsh-shell-env            managed DSH_* shell environment for model shell calls (unless toolBash=false)
+@buddhilive/dsh-tool-bash            the model-facing bash schema (unless toolBash=false)
+@buddhilive/dsh-agent-instructions   AGENTS.md/CLAUDE.md workspace context loader
+@buddhilive/dsh-tool-skill           session-prefix skill catalog + model-facing loader schema
+@buddhilive/dsh-tool-jobs            job_output/job_list/job_kill schemas + completion notices
+@buddhilive/dsh-agent-loop           THE concrete loop (gets the forwarded `agents`)
 ```
 
 ### 为何用代码组合包，而非共享 YAML include
@@ -153,7 +153,7 @@ YAML include 可以去重配置，却无法拥有 bin 或提供入口默认值�
 - [ACP 应用组合包](../../bundle/acp-app/README.zh.md)——不预创建 agent、组合本主干的 `dsh --profile acp` 应用。
 - [SDK 应用组合包](../../bundle/sdk-app/README.zh.md)——为 JSON-RPC 客户端组合本主干的 `dsh --profile sdk` 应用。
 - [核心子系统](../../../docs/subsystems/core.zh.md)——本主干挂载的服务与 agent loop 约定。
-- [生成配置目录](../../../docs/config-catalog.zh.md#deepseek-aidsh-agent-spine-demo)——每个受支持配置字段及其源声明。
+- [生成配置目录](../../../docs/config-catalog.zh.md#buddhilivedsh-agent-spine-demo)——每个受支持配置字段及其源声明。
 - [Service Definition／Service Provider／Consumer 职责分离](../../../.agents/notes/implemented/architecture/2026-06-13-capability-seams.zh.md)——为何组合包拥有共享主干，而叶节点拥有后端。
 
 -----

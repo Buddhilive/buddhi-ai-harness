@@ -1,11 +1,11 @@
 /**
  * Schema-20 physical chunk-row codec. This package owns the durable tags,
  * validation, and row-size limits independently from other persistence formats.
- * @module @deepseek-ai/dsh-session-persistence-sqlite/codec
+ * @module @buddhilive/dsh-session-persistence-sqlite/codec
  */
 
-import type { StreamChunk } from '@deepseek-ai/dsh-llm'
-import type { SessionEvent } from '@deepseek-ai/dsh-session'
+import type { StreamChunk } from '@buddhilive/dsh-llm'
+import type { SessionEvent } from '@buddhilive/dsh-session'
 
 /* jscpd:ignore-start -- schema 20 deliberately owns a frozen physical codec;
  * importing or sharing the JSONL codec would let that format mutate this database interpreter. */

@@ -3,7 +3,7 @@ description: "The default executor-less, UI-less agent spine as one Cordis bundl
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-agent-spine-demo
+# @buddhilive/dsh-agent-spine-demo
 
 English | [中文](README.zh.md)
 
@@ -46,12 +46,12 @@ These pieces are yours to supply; the bundle leaves them out so each entry point
 The smallest working setup mounts the bundle with a workspace-context budget, plus an LLM adapter and an executor:
 
 ```yaml
-- name: '@deepseek-ai/dsh-agent-spine-demo'
+- name: '@buddhilive/dsh-agent-spine-demo'
   config:
     workspaceContext:
       maxBytes: 4096
-- name: '@deepseek-ai/dsh-llm-deepseek'   # concrete adapter for ctx.llm
-- name: '@deepseek-ai/dsh-bash-local'     # executor for ctx.shell
+- name: '@buddhilive/dsh-llm-deepseek'   # concrete adapter for ctx.llm
+- name: '@buddhilive/dsh-bash-local'     # executor for ctx.shell
 ```
 
 `workspaceContext` is the one required field: give it a byte budget so workspace files load into the agent's context, or set `false` for hermetic prompts. `agents` defaults to none, so pass the agents you want running — or omit it when your entry point creates them on demand (the ACP app does this). You know the setup works when the agent answers a first prompt and its session is saved.
@@ -75,7 +75,7 @@ The smallest working setup mounts the bundle with a workspace-context budget, pl
 | `invariants` | owner default | developer setting: which package checks run and which packages are filtered |
 | `goals` | unmounted | optional persisted goals the agent can create and track across turns |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-agent-spine-demo) is the exhaustive source for every accepted field and its source declaration.
+The generated [configuration catalog](../../../docs/config-catalog.md#buddhilivedsh-agent-spine-demo) is the exhaustive source for every accepted field and its source declaration.
 
 ### Request retry and billing
 
@@ -99,30 +99,30 @@ This section explains how the bundle composes the spine and points at the code t
 
 ```text
 @deepseek-ai/cordis-plugin-timer      timer service (writes nothing to stdout)
-@deepseek-ai/dsh-llm                  abstract LLM service + content-block vocabulary
-@deepseek-ai/dsh-session              event-sourced session log + store
-@deepseek-ai/dsh-session-title        log-backed title service + deterministic fallback
-@deepseek-ai/dsh-system-prompt        prompt-section + tool-schema assembly
-@deepseek-ai/dsh-tools                registry + guarded pre/around/post/final-result pipeline
-@deepseek-ai/dsh-skill                skill provider registry
-@deepseek-ai/dsh-skill-filesystem     local filesystem skill provider
-@deepseek-ai/dsh-agent                agent registry + initiator scope + agent/* events
-@deepseek-ai/dsh-goal                 optional persisted same-session goal domain
-@deepseek-ai/dsh-tool-goal            optional model-facing goal controls
-@deepseek-ai/dsh-goal-round-driver    optional same-session goal-round driver
-@deepseek-ai/dsh-llm-retry            provider-routed request retry policy
-@deepseek-ai/dsh-jobs-local           generic background-job registry
-@deepseek-ai/dsh-invariants           configurable invariant registry service
-@deepseek-ai/dsh-session/invariant
-@deepseek-ai/dsh-agent/invariant
-@deepseek-ai/dsh-scope/invariant
-@deepseek-ai/dsh-agent-loop/invariant package-owned relational checks
-@deepseek-ai/dsh-shell-env            managed DSH_* shell environment for model shell calls (unless toolBash=false)
-@deepseek-ai/dsh-tool-bash            the model-facing bash schema (unless toolBash=false)
-@deepseek-ai/dsh-agent-instructions   AGENTS.md/CLAUDE.md workspace context loader
-@deepseek-ai/dsh-tool-skill           session-prefix skill catalog + model-facing loader schema
-@deepseek-ai/dsh-tool-jobs            job_output/job_list/job_kill schemas + completion notices
-@deepseek-ai/dsh-agent-loop           THE concrete loop (gets the forwarded `agents`)
+@buddhilive/dsh-llm                  abstract LLM service + content-block vocabulary
+@buddhilive/dsh-session              event-sourced session log + store
+@buddhilive/dsh-session-title        log-backed title service + deterministic fallback
+@buddhilive/dsh-system-prompt        prompt-section + tool-schema assembly
+@buddhilive/dsh-tools                registry + guarded pre/around/post/final-result pipeline
+@buddhilive/dsh-skill                skill provider registry
+@buddhilive/dsh-skill-filesystem     local filesystem skill provider
+@buddhilive/dsh-agent                agent registry + initiator scope + agent/* events
+@buddhilive/dsh-goal                 optional persisted same-session goal domain
+@buddhilive/dsh-tool-goal            optional model-facing goal controls
+@buddhilive/dsh-goal-round-driver    optional same-session goal-round driver
+@buddhilive/dsh-llm-retry            provider-routed request retry policy
+@buddhilive/dsh-jobs-local           generic background-job registry
+@buddhilive/dsh-invariants           configurable invariant registry service
+@buddhilive/dsh-session/invariant
+@buddhilive/dsh-agent/invariant
+@buddhilive/dsh-scope/invariant
+@buddhilive/dsh-agent-loop/invariant package-owned relational checks
+@buddhilive/dsh-shell-env            managed DSH_* shell environment for model shell calls (unless toolBash=false)
+@buddhilive/dsh-tool-bash            the model-facing bash schema (unless toolBash=false)
+@buddhilive/dsh-agent-instructions   AGENTS.md/CLAUDE.md workspace context loader
+@buddhilive/dsh-tool-skill           session-prefix skill catalog + model-facing loader schema
+@buddhilive/dsh-tool-jobs            job_output/job_list/job_kill schemas + completion notices
+@buddhilive/dsh-agent-loop           THE concrete loop (gets the forwarded `agents`)
 ```
 
 ### Why a code bundle, not a shared YAML include
@@ -153,7 +153,7 @@ Read these pages when the package-level contract is not enough. They move from t
 - [ACP application bundle](../../bundle/acp-app/README.md) — the `dsh --profile acp` application that composes this spine without pre-created agents.
 - [SDK application bundle](../../bundle/sdk-app/README.md) — the `dsh --profile sdk` application that composes this spine for JSON-RPC clients.
 - [Core subsystem](../../../docs/subsystems/core.md) — the services this spine mounts and the agent-loop contract.
-- [Generated configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-agent-spine-demo) — every accepted config field and its source declaration.
+- [Generated configuration catalog](../../../docs/config-catalog.md#buddhilivedsh-agent-spine-demo) — every accepted config field and its source declaration.
 - [Service Definition / Service Provider / Consumer separation](../../../.agents/notes/implemented/architecture/2026-06-13-capability-seams.md) — why the bundle owns the shared spine while leaves own the backends.
 
 -----

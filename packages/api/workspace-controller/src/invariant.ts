@@ -1,10 +1,10 @@
-/** Package-owned invariant companion. @module @deepseek-ai/dsh-api-workspace-controller/invariant */
+/** Package-owned invariant companion. @module @buddhilive/dsh-api-workspace-controller/invariant */
 
 /* jscpd:ignore-start */
 import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { InvariantInstaller } from '@buddhilive/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-api-workspace-controller'
+const PACKAGE_NAME = '@buddhilive/dsh-api-workspace-controller'
 
 /** Cordis companion plugin name. */
 export const name = 'api-workspace-controller-invariant'

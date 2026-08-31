@@ -3,7 +3,7 @@ description: "fd-3 wire protocol between a Node host and a CPython subprocess fo
 kind: "package-library"
 ---
 
-# @deepseek-ai/dsh-code-runtime-python
+# @buddhilive/dsh-code-runtime-python
 
 English | [中文](README.zh.md)
 

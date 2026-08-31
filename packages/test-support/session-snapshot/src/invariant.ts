@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-session-snapshot`.
- * @module @deepseek-ai/dsh-session-snapshot/invariant
+ * Package-owned invariant companion for `@buddhilive/dsh-session-snapshot`.
+ * @module @buddhilive/dsh-session-snapshot/invariant
  */
 
 /* jscpd:ignore-start */
 import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { InvariantInstaller } from '@buddhilive/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-session-snapshot'
+const PACKAGE_NAME = '@buddhilive/dsh-session-snapshot'
 
 /** Cordis companion plugin name. */
 export const name = 'session-snapshot-invariant'

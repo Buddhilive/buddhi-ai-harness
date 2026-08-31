@@ -2,9 +2,9 @@
 
 /* jscpd:ignore-start */
 import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { InvariantInstaller } from '@buddhilive/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-client-ui-schedule'
+const PACKAGE_NAME = '@buddhilive/dsh-client-ui-schedule'
 
 /** Cordis companion plugin name. */
 export const name = 'client-ui-schedule-invariant'

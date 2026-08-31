@@ -7,7 +7,7 @@
  */
 
 import { EventSourceParserStream } from 'eventsource-parser/stream'
-import { LlmError } from '@deepseek-ai/dsh-llm'
+import { LlmError } from '@buddhilive/dsh-llm'
 
 export const DONE = '[DONE]'
 

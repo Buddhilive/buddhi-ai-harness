@@ -2,16 +2,16 @@
 
 import { describe, expect, it } from 'vitest'
 import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import SessionStore from '@deepseek-ai/dsh-session'
-import type { Session } from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import UserQuestionService from '@deepseek-ai/dsh-user-questions'
-import { CommandId } from '@deepseek-ai/dsh-commands/brand'
-import PlanModeController from '@deepseek-ai/dsh-plan-mode'
+import AgentRegistry from '@buddhilive/dsh-agent'
+import type { Agent } from '@buddhilive/dsh-agent'
+import SessionStore from '@buddhilive/dsh-session'
+import type { Session } from '@buddhilive/dsh-session'
+import SystemPrompt from '@buddhilive/dsh-system-prompt'
+import ToolRuntime from '@buddhilive/dsh-tools'
+import SessionProjectionRegistry from '@buddhilive/dsh-session-projection'
+import UserQuestionService from '@buddhilive/dsh-user-questions'
+import { CommandId } from '@buddhilive/dsh-commands/brand'
+import PlanModeController from '@buddhilive/dsh-plan-mode'
 
 interface Bench {
   ctx: Context

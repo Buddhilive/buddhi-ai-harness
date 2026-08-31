@@ -1,10 +1,10 @@
-/** Package-owned invariant companion for `@deepseek-ai/dsh-deepseek-llm-api-extensions`. */
+/** Package-owned invariant companion for `@buddhilive/dsh-deepseek-llm-api-extensions`. */
 
 /* jscpd:ignore-start */
 import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { InvariantInstaller } from '@buddhilive/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-deepseek-llm-api-extensions'
+const PACKAGE_NAME = '@buddhilive/dsh-deepseek-llm-api-extensions'
 
 /** Cordis companion plugin name. */
 export const name = 'deepseek-llm-api-extensions-invariant'

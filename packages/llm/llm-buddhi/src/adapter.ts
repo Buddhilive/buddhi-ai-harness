@@ -16,7 +16,7 @@ import {
   type StreamChunk,
   type TokenUsage,
   type ToolCallBlock,
-} from '@deepseek-ai/dsh-llm'
+} from '@buddhilive/dsh-llm'
 import { parseSse } from './sse.ts'
 
 export interface BuddhiAdapterOptions {

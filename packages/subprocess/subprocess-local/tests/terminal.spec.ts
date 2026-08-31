@@ -1,14 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { IDisposable, IPty } from 'node-pty'
-import { LocalTerminalHandle } from '@deepseek-ai/dsh-subprocess-local/src/terminal.ts'
-import { createProcessInspector } from '@deepseek-ai/dsh-subprocess-local/src/process-inspector.ts'
+import { LocalTerminalHandle } from '@buddhilive/dsh-subprocess-local/src/terminal.ts'
+import { createProcessInspector } from '@buddhilive/dsh-subprocess-local/src/process-inspector.ts'
 import type {
   ProcessIdentity,
   ProcessInspector,
   ProcessInspectorInternals,
   ProcessSnapshot,
-} from '@deepseek-ai/dsh-subprocess-local/src/process-inspector.ts'
-import type { SubprocessTerminalSignal } from '@deepseek-ai/dsh-subprocess'
+} from '@buddhilive/dsh-subprocess-local/src/process-inspector.ts'
+import type { SubprocessTerminalSignal } from '@buddhilive/dsh-subprocess'
 
 class FakePty {
   pid = 123

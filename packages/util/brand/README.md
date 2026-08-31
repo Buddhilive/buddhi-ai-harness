@@ -3,7 +3,7 @@ description: "Nominal string types and stateless constructors for packages that 
 kind: "package-library"
 ---
 
-# @deepseek-ai/dsh-brand
+# @buddhilive/dsh-brand
 
 English | [中文](README.zh.md)
 
@@ -30,7 +30,7 @@ Brand the ids a package owns when they cross a package boundary and could plausi
 Declare the branded type in the owning package and apply it at the point where that package admits a string:
 
 ```ts
-import { brandString, type Branded } from '@deepseek-ai/dsh-brand'
+import { brandString, type Branded } from '@buddhilive/dsh-brand'
 
 export type SessionId = Branded<'SessionId'>
 

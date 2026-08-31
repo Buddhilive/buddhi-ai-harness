@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'react'
+import { en } from './locales.ts'
 
 export interface BuddhiWordmarkProps extends HTMLAttributes<HTMLDivElement> {
   includeMark?: boolean | undefined
@@ -23,7 +24,7 @@ export function BuddhiWordmark({ className, ...props }: BuddhiWordmarkProps) {
       className={className}
       {...props}
     >
-      <span style={{ fontSize: '15px', color: 'currentColor' }}>BuddhiAI</span>
+      <span style={{ fontSize: '15px', color: 'currentColor' }}>{en.brandName}</span>
       <span
         style={{
           fontSize: '11px',
@@ -37,7 +38,7 @@ export function BuddhiWordmark({ className, ...props }: BuddhiWordmarkProps) {
           opacity: 0.9,
         }}
       >
-        Harness
+        {en.brandSuffix}
       </span>
     </div>
   )

@@ -1,10 +1,10 @@
-/** Package-owned invariant companion for `@deepseek-ai/dsh-util-values`. */
+/** Package-owned invariant companion for `@buddhilive/dsh-util-values`. */
 
 /* jscpd:ignore-start */
 import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { InvariantInstaller } from '@buddhilive/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-util-values'
+const PACKAGE_NAME = '@buddhilive/dsh-util-values'
 
 /** Cordis companion plugin name. */
 export const name = 'util-values-invariant'

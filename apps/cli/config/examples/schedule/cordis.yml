@@ -3,10 +3,10 @@
 
 - insert:
     - id: time-context
-      name: '@deepseek-ai/dsh-time-context'
+      name: '@buddhilive/dsh-time-context'
 
     - id: schedule
-      name: '@deepseek-ai/dsh-schedule'
+      name: '@buddhilive/dsh-schedule'
 
 - id: ui-schedule
   disabled: false

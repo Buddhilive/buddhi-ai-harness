@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
-import type { ScheduleRecord } from '@deepseek-ai/dsh-schedule/client'
+import type { ScheduleRecord } from '@buddhilive/dsh-schedule/client'
 import {
   IconAlarmClockOutline16,
   IconChevronDownOutline14,
   useDismissOnOutsidePointer,
-} from '@deepseek-ai/dsh-client-ui-primitives'
-import type { PropsLocale, PropsRuntime, TranslateNS } from '@deepseek-ai/dsh-client-ui-slots'
-import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@buddhilive/dsh-client-ui-primitives'
+import type { PropsLocale, PropsRuntime, TranslateNS } from '@buddhilive/dsh-client-ui-slots'
+import type {} from '@buddhilive/dsh-client-ui-conversation/client'
 import { NS } from './locales.ts'
 import css from './ScheduleCatalogAction.module.css'
 

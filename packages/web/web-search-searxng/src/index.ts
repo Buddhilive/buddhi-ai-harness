@@ -7,7 +7,7 @@
 
 import type { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
-import type { WebSearchProvider, WebSearchRequest, WebSearchResult } from '@deepseek-ai/dsh-web'
+import type { WebSearchProvider, WebSearchRequest, WebSearchResult } from '@buddhilive/dsh-web'
 import { executeSearXNGSearch, resolveSearXNGBaseURL, type SearXNGClientOptions } from './searxng-client.ts'
 
 export const name = 'web-search-searxng'
@@ -15,7 +15,9 @@ export const inject = ['web']
 export const SEARXNG_PROVIDER_ID = 'searxng'
 
 export interface Config {
+  /** Base URL of the BuddhiAI Studio or SearXNG instance. */
   baseURL?: string
+  /** Request timeout in milliseconds. */
   timeoutMs?: number
 }
 

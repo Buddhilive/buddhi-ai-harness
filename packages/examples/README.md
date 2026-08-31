@@ -24,7 +24,7 @@ The examples group provides the reusable agent spine for tests and custom deploy
 
 | Package | npm name | Role |
 |---|---|---|
-| [`agent-spine-demo/`](agent-spine-demo/README.md) | `@deepseek-ai/dsh-agent-spine-demo` | Working agent core you mount and configure with your own LLM and executor |
+| [`agent-spine-demo/`](agent-spine-demo/README.md) | `@buddhilive/dsh-agent-spine-demo` | Working agent core you mount and configure with your own LLM and executor |
 
 `agent-spine-demo` is the shared agent core. Product application assemblies live under [`bundle/`](../bundle/README.md); this support package remains available to focused tests and custom compositions.
 

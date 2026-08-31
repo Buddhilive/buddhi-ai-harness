@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { Context } from '@deepseek-ai/cordis'
-import InvariantRegistry from '@deepseek-ai/dsh-invariants'
+import InvariantRegistry from '@buddhilive/dsh-invariants'
 import * as yaml from 'js-yaml'
 import { entryListSchema } from '@deepseek-ai/cordis-plugin-include'
 import * as WebProfileInvariant from '../src/invariant.ts'
@@ -23,7 +23,7 @@ describe('Agent Teams Web profile bundle', () => {
     expect(manifest.publishConfig).toBeUndefined()
     expect(manifest.dsh?.bundle?.patch).toBe('./cordis.patch.yml')
     expect(manifest.dependencies).toEqual({
-      '@deepseek-ai/dsh-experimental-client-ui-agent-team': 'workspace:^',
+      '@buddhilive/dsh-experimental-client-ui-agent-team': 'workspace:^',
     })
 
     const parsed = yaml.load(
@@ -31,7 +31,7 @@ describe('Agent Teams Web profile bundle', () => {
       { schema: entryListSchema },
     ) as { insert?: { id?: string; name?: string }[] }[]
     expect(parsed.flatMap(patch => patch.insert ?? [])).toEqual([
-      { id: 'ui-agent-team', name: '@deepseek-ai/dsh-experimental-client-ui-agent-team' },
+      { id: 'ui-agent-team', name: '@buddhilive/dsh-experimental-client-ui-agent-team' },
     ])
   })
 

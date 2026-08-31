@@ -2,11 +2,11 @@
 
 import { Context } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
-import { errorChain } from '@deepseek-ai/dsh-llm'
-import { canOpenNativePath, openNativePath } from '@deepseek-ai/dsh-native-command'
-import type { SessionEvent, SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionObservation } from '@deepseek-ai/dsh-session-query'
-import { Remote, RemoteError, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
+import { errorChain } from '@buddhilive/dsh-llm'
+import { canOpenNativePath, openNativePath } from '@buddhilive/dsh-native-command'
+import type { SessionEvent, SessionHeader, SessionId } from '@buddhilive/dsh-session'
+import type { SessionObservation } from '@buddhilive/dsh-session-query'
+import { Remote, RemoteError, TypertRemoteService } from '@buddhilive/dsh-typert-protocol'
 import {
   ApiSessionAgentController,
   inspectApiSession,

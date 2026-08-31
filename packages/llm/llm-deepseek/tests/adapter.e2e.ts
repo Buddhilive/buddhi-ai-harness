@@ -6,10 +6,10 @@ import { randomBytes } from 'node:crypto'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Context } from '@deepseek-ai/cordis'
 import Loader from '@deepseek-ai/cordis-plugin-loader'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import LlmRuntime, { createUserMessage, ToolCallId, ReasoningEffortId, createMessage } from '@deepseek-ai/dsh-llm'
-import type { Message, ToolSchema } from '@deepseek-ai/dsh-llm'
-import AttachmentStore, { AttachmentId, ImageVariantId } from '@deepseek-ai/dsh-attachment'
+import AgentRegistry from '@buddhilive/dsh-agent'
+import LlmRuntime, { createUserMessage, ToolCallId, ReasoningEffortId, createMessage } from '@buddhilive/dsh-llm'
+import type { Message, ToolSchema } from '@buddhilive/dsh-llm'
+import AttachmentStore, { AttachmentId, ImageVariantId } from '@buddhilive/dsh-attachment'
 import type {
   ImageAttachmentLimits,
   ImageAttachmentRef,
@@ -17,14 +17,14 @@ import type {
   RequestImageAttachment,
   SaveImageAttachment,
   StoredImageAttachment,
-} from '@deepseek-ai/dsh-attachment'
-import { LocalCredentialProvider } from '@deepseek-ai/dsh-credentials-local'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import DeepSeekLlmApiExtensionRegistry from '@deepseek-ai/dsh-deepseek-llm-api-extensions'
-import * as PluginPackageInventoryDeepSeek from '@deepseek-ai/dsh-plugin-package-inventory-deepseek'
-import * as SessionLogDeepSeek from '@deepseek-ai/dsh-session-log-deepseek'
-import * as LlmDeepSeek from '@deepseek-ai/dsh-llm-deepseek'
-import type { Config } from '@deepseek-ai/dsh-llm-deepseek'
+} from '@buddhilive/dsh-attachment'
+import { LocalCredentialProvider } from '@buddhilive/dsh-credentials-local'
+import SessionStore, { SessionId } from '@buddhilive/dsh-session'
+import DeepSeekLlmApiExtensionRegistry from '@buddhilive/dsh-deepseek-llm-api-extensions'
+import * as PluginPackageInventoryDeepSeek from '@buddhilive/dsh-plugin-package-inventory-deepseek'
+import * as SessionLogDeepSeek from '@buddhilive/dsh-session-log-deepseek'
+import * as LlmDeepSeek from '@buddhilive/dsh-llm-deepseek'
+import type { Config } from '@buddhilive/dsh-llm-deepseek'
 import { assemble, type AssembledResult } from './assemble.ts'
 
 /**

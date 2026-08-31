@@ -5,13 +5,13 @@
 
 import { describe, expect, it, vi } from 'vitest'
 import { Context } from '@deepseek-ai/cordis'
-import type { MessageId } from '@deepseek-ai/dsh-llm'
-import { SessionId } from '@deepseek-ai/dsh-session'
+import type { MessageId } from '@buddhilive/dsh-llm'
+import { SessionId } from '@buddhilive/dsh-session'
 import SubagentRuntime, {
   SubagentError,
   type SubagentListEntry,
   type SubagentPromptRequestId,
-} from '@deepseek-ai/dsh-subagent'
+} from '@buddhilive/dsh-subagent'
 
 const PARENT = SessionId('parent')
 const CHILD = SessionId('child')

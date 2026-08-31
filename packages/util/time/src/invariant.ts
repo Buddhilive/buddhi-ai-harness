@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-util-time`.
- * @module @deepseek-ai/dsh-util-time/invariant
+ * Package-owned invariant companion for `@buddhilive/dsh-util-time`.
+ * @module @buddhilive/dsh-util-time/invariant
  */
 
 /* jscpd:ignore-start */
 import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { InvariantInstaller } from '@buddhilive/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-util-time'
+const PACKAGE_NAME = '@buddhilive/dsh-util-time'
 
 /** Cordis companion plugin name. */
 export const name = 'time-invariant'

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-session-controller",
+  "name": "@buddhilive/dsh-api-session-controller",
   "description": "Session Remote commands, cold reads, and live control transport",
   "version": "0.1.2-alpha.2",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
     "directory": "packages/api/session-controller"
   },
   "type": "module",
@@ -48,10 +48,10 @@
   "dsh": {
     "client": {
       "external": [
-        "@deepseek-ai/dsh-api-gateway/client"
+        "@buddhilive/dsh-api-gateway/client"
       ],
       "inject": [
-        "@deepseek-ai/dsh-api-gateway"
+        "@buddhilive/dsh-api-gateway"
       ],
       "platform": "web"
     }
@@ -73,82 +73,82 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-deque": "workspace:^",
+    "@buddhilive/dsh-brand": "workspace:^",
+    "@buddhilive/dsh-deque": "workspace:^",
     "@deepseek-ai/schemastery": "workspace:^",
     "zod": "^4.4.3"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-default-model": "workspace:^",
-    "@deepseek-ai/dsh-agent-presets": "workspace:^",
-    "@deepseek-ai/dsh-api-gateway": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-file-reference": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-jobs": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-native-command": "workspace:^",
-    "@deepseek-ai/dsh-scope": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-session-projection-cache": "workspace:^",
-    "@deepseek-ai/dsh-session-query": "workspace:^",
-    "@deepseek-ai/dsh-session-title": "workspace:^",
-    "@deepseek-ai/dsh-skill": "workspace:^",
-    "@deepseek-ai/dsh-subagent": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/dsh-typert-registry": "workspace:^",
-    "@deepseek-ai/dsh-util-time": "workspace:^",
-    "@deepseek-ai/dsh-util-workspace-path": "workspace:^",
-    "@deepseek-ai/dsh-workspace": "workspace:^"
+    "@buddhilive/dsh-agent": "workspace:^",
+    "@buddhilive/dsh-agent-default-model": "workspace:^",
+    "@buddhilive/dsh-agent-presets": "workspace:^",
+    "@buddhilive/dsh-api-gateway": "workspace:^",
+    "@buddhilive/dsh-attachment": "workspace:^",
+    "@buddhilive/dsh-client-connection": "workspace:^",
+    "@buddhilive/dsh-file-reference": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-jobs": "workspace:^",
+    "@buddhilive/dsh-llm": "workspace:^",
+    "@buddhilive/dsh-native-command": "workspace:^",
+    "@buddhilive/dsh-scope": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
+    "@buddhilive/dsh-session-persistence": "workspace:^",
+    "@buddhilive/dsh-session-projection": "workspace:^",
+    "@buddhilive/dsh-session-projection-cache": "workspace:^",
+    "@buddhilive/dsh-session-query": "workspace:^",
+    "@buddhilive/dsh-session-title": "workspace:^",
+    "@buddhilive/dsh-skill": "workspace:^",
+    "@buddhilive/dsh-subagent": "workspace:^",
+    "@buddhilive/dsh-typert-protocol": "workspace:^",
+    "@buddhilive/dsh-typert-registry": "workspace:^",
+    "@buddhilive/dsh-util-time": "workspace:^",
+    "@buddhilive/dsh-util-workspace-path": "workspace:^",
+    "@buddhilive/dsh-workspace": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-jobs": {
+    "@buddhilive/dsh-jobs": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-persistence": {
+    "@buddhilive/dsh-session-persistence": {
       "optional": true
     },
-    "@deepseek-ai/dsh-session-projection-cache": {
+    "@buddhilive/dsh-session-projection-cache": {
       "optional": true
     }
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-default-model": "workspace:^",
-    "@deepseek-ai/dsh-agent-presets": "workspace:^",
-    "@deepseek-ai/dsh-api-gateway": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-client-store": "workspace:^",
-    "@deepseek-ai/dsh-file-reference": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-jobs": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-native-command": "workspace:^",
-    "@deepseek-ai/dsh-permission-presets": "workspace:^",
-    "@deepseek-ai/dsh-scope": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-session-projection-cache": "workspace:^",
-    "@deepseek-ai/dsh-session-query": "workspace:^",
-    "@deepseek-ai/dsh-session-title": "workspace:^",
-    "@deepseek-ai/dsh-skill": "workspace:^",
-    "@deepseek-ai/dsh-storage": "workspace:^",
-    "@deepseek-ai/dsh-storage-domain": "workspace:^",
-    "@deepseek-ai/dsh-storage-json": "workspace:^",
-    "@deepseek-ai/dsh-subagent": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/dsh-typert-registry": "workspace:^",
-    "@deepseek-ai/dsh-util-crypto": "workspace:^",
-    "@deepseek-ai/dsh-util-time": "workspace:^",
-    "@deepseek-ai/dsh-util-workspace-path": "workspace:^",
-    "@deepseek-ai/dsh-workspace": "workspace:^"
+    "@buddhilive/dsh-agent": "workspace:^",
+    "@buddhilive/dsh-agent-default-model": "workspace:^",
+    "@buddhilive/dsh-agent-presets": "workspace:^",
+    "@buddhilive/dsh-api-gateway": "workspace:^",
+    "@buddhilive/dsh-attachment": "workspace:^",
+    "@buddhilive/dsh-client-connection": "workspace:^",
+    "@buddhilive/dsh-client-store": "workspace:^",
+    "@buddhilive/dsh-file-reference": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-jobs": "workspace:^",
+    "@buddhilive/dsh-llm": "workspace:^",
+    "@buddhilive/dsh-native-command": "workspace:^",
+    "@buddhilive/dsh-permission-presets": "workspace:^",
+    "@buddhilive/dsh-scope": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
+    "@buddhilive/dsh-session-persistence": "workspace:^",
+    "@buddhilive/dsh-session-projection": "workspace:^",
+    "@buddhilive/dsh-session-projection-cache": "workspace:^",
+    "@buddhilive/dsh-session-query": "workspace:^",
+    "@buddhilive/dsh-session-title": "workspace:^",
+    "@buddhilive/dsh-skill": "workspace:^",
+    "@buddhilive/dsh-storage": "workspace:^",
+    "@buddhilive/dsh-storage-domain": "workspace:^",
+    "@buddhilive/dsh-storage-json": "workspace:^",
+    "@buddhilive/dsh-subagent": "workspace:^",
+    "@buddhilive/dsh-typert-protocol": "workspace:^",
+    "@buddhilive/dsh-typert-registry": "workspace:^",
+    "@buddhilive/dsh-util-crypto": "workspace:^",
+    "@buddhilive/dsh-util-time": "workspace:^",
+    "@buddhilive/dsh-util-workspace-path": "workspace:^",
+    "@buddhilive/dsh-workspace": "workspace:^"
   }
 }

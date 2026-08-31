@@ -2,10 +2,10 @@ import type {
   AssistantChatData, AssistantMessageNode, ChatConversationViewNode, ChatSnapshot, ConversationNode,
   ChatLocationNodeIndex, ChatNodeStore, CompactionSummaryNode, FinalAssistantChatData,
   LegacyConversationSlice, PartialAssistant, RunningToolCall, ToolCallBlock, TurnNavigationItem,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
+} from '@buddhilive/dsh-client-ui-chat/client'
 import type {
   ConversationLocationDataStore, ConversationTurnDataMap, TurnLocation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@buddhilive/dsh-client-ui-conversation/client'
 import type { TurnTokenUsage } from '../src/client/contract/chat-nodes.ts'
 import { deriveTurnMetrics } from '../src/client/contract/turn-metrics.ts'
 import {

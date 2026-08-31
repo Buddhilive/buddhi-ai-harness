@@ -8,7 +8,7 @@ import { join, resolve } from 'node:path'
 import { performance } from 'node:perf_hooks'
 import { parseArgs } from 'node:util'
 
-const TARGET_PACKAGE = '@deepseek-ai/dsh'
+const TARGET_PACKAGE = 'buddhi-ai'
 const DEFAULT_TIMEOUT_MS = 300_000
 const TERMINATION_GRACE_MS = 1_000
 const FORCED_EXIT_TIMEOUT_MS = 5_000

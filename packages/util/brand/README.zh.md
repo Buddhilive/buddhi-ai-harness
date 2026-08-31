@@ -3,7 +3,7 @@ description: "供拥有跨包标识符的包使用的名义字符串类型与无
 kind: "package-library"
 ---
 
-# @deepseek-ai/dsh-brand
+# @buddhilive/dsh-brand
 
 [English](README.md) | 中文
 
@@ -30,7 +30,7 @@ kind: "package-library"
 在所属包中声明品牌化类型，并在该包准入字符串的位置应用品牌：
 
 ```ts
-import { brandString, type Branded } from '@deepseek-ai/dsh-brand'
+import { brandString, type Branded } from '@buddhilive/dsh-brand'
 
 export type SessionId = Branded<'SessionId'>
 

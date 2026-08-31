@@ -2,13 +2,13 @@
  * Fixed physical-record compression for SQLite. Schema-owned functions
  * encode logical events and decode tagged rows before persistence consumers
  * observe them.
- * @module @deepseek-ai/dsh-session-persistence-sqlite/compression
+ * @module @buddhilive/dsh-session-persistence-sqlite/compression
  */
 
 import { readFileSync } from 'node:fs'
 import { TextDecoder } from 'node:util'
 import { constants, zstdCompressSync, zstdDecompressSync } from 'node:zlib'
-import type { SessionEvent, SurfaceEventType } from '@deepseek-ai/dsh-session'
+import type { SessionEvent, SurfaceEventType } from '@buddhilive/dsh-session'
 import {
   decodeSerializedChunkRow,
   type ChunkRow,

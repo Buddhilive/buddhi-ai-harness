@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { resolveBaseURL, serializeMessages, BuddhiAdapter } from '../src/adapter.ts'
 import { parseSse } from '../src/sse.ts'
-import type { GenerateOptions } from '@deepseek-ai/dsh-llm'
-import { MessageId, ToolCallId } from '@deepseek-ai/dsh-llm'
+import type { GenerateOptions } from '@buddhilive/dsh-llm'
+import { MessageId, ToolCallId } from '@buddhilive/dsh-llm'
 
 describe('BuddhiAdapter base URL resolution', () => {
   it('falls back to default http://localhost:8765/v1 when nothing is set', () => {

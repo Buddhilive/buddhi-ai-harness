@@ -18,25 +18,25 @@
  * disposed by then, and the release that wakes the parent's own settlement
  * watcher has already run. See {@link SubagentContinuationManager.notifySettlement}.
  *
- * @module @deepseek-ai/dsh-subagent
+ * @module @buddhilive/dsh-subagent
  */
 
 import { randomUUID } from 'node:crypto'
 import type { Context } from '@deepseek-ai/cordis'
-import { brandString } from '@deepseek-ai/dsh-brand'
+import { brandString } from '@buddhilive/dsh-brand'
 import type {
   Agent,
   AgentHandle,
   AgentOptions,
   AgentSetupCommit,
   CreateAgentOptions,
-} from '@deepseek-ai/dsh-agent'
-import { ReasoningEffortId, boundContextSummary, createUserMessage, errorChain } from '@deepseek-ai/dsh-llm'
-import type { ContentBlock, MessageId, MessageSource } from '@deepseek-ai/dsh-llm'
-import type { SessionEvent, SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionPersistence } from '@deepseek-ai/dsh-session-persistence'
-import type { SessionObservation, SessionQueryEngine } from '@deepseek-ai/dsh-session-query'
-import type { ToolRestriction } from '@deepseek-ai/dsh-tools'
+} from '@buddhilive/dsh-agent'
+import { ReasoningEffortId, boundContextSummary, createUserMessage, errorChain } from '@buddhilive/dsh-llm'
+import type { ContentBlock, MessageId, MessageSource } from '@buddhilive/dsh-llm'
+import type { SessionEvent, SessionId } from '@buddhilive/dsh-session'
+import type { SessionPersistence } from '@buddhilive/dsh-session-persistence'
+import type { SessionObservation, SessionQueryEngine } from '@buddhilive/dsh-session-query'
+import type { ToolRestriction } from '@buddhilive/dsh-tools'
 import { foldSubagentDescriptor, snapshotSubagentDescriptor } from './descriptor.ts'
 import type { SubagentDescriptorData } from './descriptor.ts'
 import {
@@ -90,7 +90,7 @@ export interface SubagentSettledMessageSource {
   readonly senderSessionId: SessionId
 }
 
-declare module '@deepseek-ai/dsh-llm' {
+declare module '@buddhilive/dsh-llm' {
   interface MessageSourceMap {
     coordinator: CoordinatorMessageSource
     'subagent-report': SubagentReportMessageSource
@@ -1556,7 +1556,7 @@ export class SubagentContinuationManager {
     const query = this.ctx.get('sessionQuery')
     if (query === undefined) {
       throw new SubagentError(
-        'continuable subagents require session query (load @deepseek-ai/dsh-session-query)',
+        'continuable subagents require session query (load @buddhilive/dsh-session-query)',
         'CONTINUATION_UNAVAILABLE',
       )
     }

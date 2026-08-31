@@ -3,7 +3,7 @@ description: "Node host 与 CPython 子进程之间的 fd-3 协议格式（wire 
 kind: "package-library"
 ---
 
-# @deepseek-ai/dsh-code-runtime-python
+# @buddhilive/dsh-code-runtime-python
 
 [English](README.md) | 中文
 

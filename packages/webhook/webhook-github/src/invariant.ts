@@ -1,9 +1,9 @@
 /** Package-owned invariant companion for the GitHub webhook adapter. */
 
 import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { InvariantInstaller } from '@buddhilive/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-webhook-github'
+const PACKAGE_NAME = '@buddhilive/dsh-webhook-github'
 
 /** Cordis invariant-companion plugin name. */
 export const name = 'webhook-github-invariant'

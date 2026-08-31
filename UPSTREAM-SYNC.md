@@ -72,7 +72,7 @@ When upstream introduces large updates, conflicts typically occur in a predictab
 * In `cordis.patch.yml`:
   ```yaml
   - id: web
-    name: '@deepseek-ai/dsh-web'
+    name: '@buddhilive/dsh-web'
     config:
       searchProvider: searxng       # Keep BuddhiAI SearXNG search
       fetchProvider: http           # Adopt upstream HTTP fetch provider
@@ -80,10 +80,10 @@ When upstream introduces large updates, conflicts typically occur in a predictab
   - id: web-search-searxng
     name: '@buddhilive/bah-web-search-searxng'
   ```
-* In `package.json`: Include both `@buddhilive/bah-web-search-searxng` and `@deepseek-ai/dsh-web-fetch-http` under `dependencies`.
+* In `package.json`: Include both `@buddhilive/bah-web-search-searxng` and `@buddhilive/dsh-web-fetch-http` under `dependencies`.
 
 ### 3. `packages/bundle/web-app/cordis.patch.yml`
-* **Rule**: Use `@buddhilive/bah-client-ui-brand` in place of `@deepseek-ai/dsh-client-ui-brand-official`.
+* **Rule**: Use `@buddhilive/bah-client-ui-brand` in place of `@buddhilive/dsh-client-ui-brand-official`.
 * Adopt upstream additions such as `ui-approval` and `ui-chat`.
 
 ### 4. `tsconfig.base.json` & `tsconfig.client.json`

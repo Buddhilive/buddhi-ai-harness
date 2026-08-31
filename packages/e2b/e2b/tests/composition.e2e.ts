@@ -3,20 +3,20 @@ import { join, posix } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Context } from '@deepseek-ai/cordis'
 import { describe, expect, it } from 'vitest'
-import { Inbox } from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { runLoaderSmoke } from '@deepseek-ai/dsh-loader-smoke'
+import { Inbox } from '@buddhilive/dsh-agent'
+import type { Agent } from '@buddhilive/dsh-agent'
+import { runLoaderSmoke } from '@buddhilive/dsh-loader-smoke'
 import {
   FileNotFoundError,
   Sandbox,
   SandboxNotFoundError,
-} from '@deepseek-ai/dsh-e2b'
-import TerminalSessionService, { TerminalSessionId } from '@deepseek-ai/dsh-terminal'
-import { BashTerminalBackend } from '@deepseek-ai/dsh-terminal-bash'
-import SandboxPolicyService from '@deepseek-ai/dsh-sandbox-policy'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import { Session, SessionId } from '@deepseek-ai/dsh-session'
-import E2BSubprocessRuntime from '@deepseek-ai/dsh-subprocess-e2b'
+} from '@buddhilive/dsh-e2b'
+import TerminalSessionService, { TerminalSessionId } from '@buddhilive/dsh-terminal'
+import { BashTerminalBackend } from '@buddhilive/dsh-terminal-bash'
+import SandboxPolicyService from '@buddhilive/dsh-sandbox-policy'
+import SessionProjectionRegistry from '@buddhilive/dsh-session-projection'
+import { Session, SessionId } from '@buddhilive/dsh-session'
+import E2BSubprocessRuntime from '@buddhilive/dsh-subprocess-e2b'
 
 const fixtureRoot = fileURLToPath(new URL('./fixtures/composition/', import.meta.url))
 const binScript = join(fixtureRoot, 'bin.ts')

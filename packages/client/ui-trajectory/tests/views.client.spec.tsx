@@ -10,37 +10,37 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { createElement, type ComponentProps, type FC, type ReactNode } from 'react'
-import { bindSnapshotSelector, SlotTestRuntime, stubSettingsScope } from '@deepseek-ai/dsh-client-test-runtime'
-import { resolveSlotLabel } from '@deepseek-ai/dsh-client-ui-slots'
+import { bindSnapshotSelector, SlotTestRuntime, stubSettingsScope } from '@buddhilive/dsh-client-test-runtime'
+import { resolveSlotLabel } from '@buddhilive/dsh-client-ui-slots'
 import {
   EMPTY_CONVERSATION_SNAPSHOT, UiConversation,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
+} from '@buddhilive/dsh-client-ui-conversation/client'
 import type {
   ConversationBinding, ConversationSnapshot, ConversationViewSnapshotMap, ConvViewProps,
   InputActions, InputState, RequestView, ViewTab,
-} from '@deepseek-ai/dsh-client-ui-conversation/client'
-import { EMPTY_CHAT_SNAPSHOT } from '@deepseek-ai/dsh-client-ui-chat/client'
+} from '@buddhilive/dsh-client-ui-conversation/client'
+import { EMPTY_CHAT_SNAPSHOT } from '@buddhilive/dsh-client-ui-chat/client'
 import type {
   ChatSnapshot, LegacyConversationSlice,
-} from '@deepseek-ai/dsh-client-ui-chat/client'
-import { SlotRegistry } from '@deepseek-ai/dsh-client-ui-renderer/client'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
-import type { ObservableSnapshot } from '@deepseek-ai/dsh-client-store'
+} from '@buddhilive/dsh-client-ui-chat/client'
+import { SlotRegistry } from '@buddhilive/dsh-client-ui-renderer/client'
+import { createSnapshotStore } from '@buddhilive/dsh-client-store'
+import type { ObservableSnapshot } from '@buddhilive/dsh-client-store'
 import type {
   SessionBinding, SessionListState, SessionProjectionMap, SessionSnapshot, UseProjection,
-} from '@deepseek-ai/dsh-api-session-controller/client'
-import type { WorkspaceSnapshot } from '@deepseek-ai/dsh-api-workspace-controller/client'
-import type { SessionId } from '@deepseek-ai/dsh-session/types'
-import type { SessionPendingInteractionSnapshot } from '@deepseek-ai/dsh-client-ui-session/client'
+} from '@buddhilive/dsh-api-session-controller/client'
+import type { WorkspaceSnapshot } from '@buddhilive/dsh-api-workspace-controller/client'
+import type { SessionId } from '@buddhilive/dsh-session/types'
+import type { SessionPendingInteractionSnapshot } from '@buddhilive/dsh-client-ui-session/client'
 import {
   ConversationSession, ConversationSessionHeader,
   type ConversationSessionHeaderProps, type ConversationSessionProps,
-} from '@deepseek-ai/dsh-client-ui-conversation/src/client/skeleton/ConversationSession.tsx'
-import { createConversationStore } from '@deepseek-ai/dsh-client-ui-conversation/src/client/stores.ts'
-import { zh as conversationZh } from '@deepseek-ai/dsh-client-ui-conversation/src/client/locales.ts'
-import { apply as localeApply, inject as localeInject } from '@deepseek-ai/dsh-client-locale/client'
-import { apply, inject } from '@deepseek-ai/dsh-client-ui-trajectory/client'
-import { apply as nodeApply } from '@deepseek-ai/dsh-client-ui-trajectory'
+} from '@buddhilive/dsh-client-ui-conversation/src/client/skeleton/ConversationSession.tsx'
+import { createConversationStore } from '@buddhilive/dsh-client-ui-conversation/src/client/stores.ts'
+import { zh as conversationZh } from '@buddhilive/dsh-client-ui-conversation/src/client/locales.ts'
+import { apply as localeApply, inject as localeInject } from '@buddhilive/dsh-client-locale/client'
+import { apply, inject } from '@buddhilive/dsh-client-ui-trajectory/client'
+import { apply as nodeApply } from '@buddhilive/dsh-client-ui-trajectory'
 import type { TrajectoryTurnModel } from '../src/client/layout.ts'
 import { TrajectoryTimeline as LocalizedTrajectoryTimeline } from '../src/client/TrajectoryTimeline.tsx'
 import {

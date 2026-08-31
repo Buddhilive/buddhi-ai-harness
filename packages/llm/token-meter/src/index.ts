@@ -1,18 +1,18 @@
 /**
  * Single replay-aware token-meter service for request and surface pressure.
  *
- * @module @deepseek-ai/dsh-token-meter
+ * @module @buddhilive/dsh-token-meter
  */
 
 import { Context, Service } from '@deepseek-ai/cordis'
 import z from '@deepseek-ai/schemastery'
-import { BlockAssembler } from '@deepseek-ai/dsh-llm'
-import type { LlmImageRequestPricing, Message, TokenUsage } from '@deepseek-ai/dsh-llm'
-import { deepFreeze } from '@deepseek-ai/dsh-util-values'
-import type { EpochHeader, Session, SessionEvent } from '@deepseek-ai/dsh-session'
-import { canonicalHeader, headerEquals, isSurfaceEvent } from '@deepseek-ai/dsh-session'
+import { BlockAssembler } from '@buddhilive/dsh-llm'
+import type { LlmImageRequestPricing, Message, TokenUsage } from '@buddhilive/dsh-llm'
+import { deepFreeze } from '@buddhilive/dsh-util-values'
+import type { EpochHeader, Session, SessionEvent } from '@buddhilive/dsh-session'
+import { canonicalHeader, headerEquals, isSurfaceEvent } from '@buddhilive/dsh-session'
 // Type-only: activates the `ctx.sessionProjections` Context declaration.
-import type {} from '@deepseek-ai/dsh-session-projection'
+import type {} from '@buddhilive/dsh-session-projection'
 import type {
   TokenMeasurement,
   TokenMeasurementBaseline,

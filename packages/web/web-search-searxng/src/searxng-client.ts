@@ -4,7 +4,7 @@
  * @module @buddhilive/bah-web-search-searxng/searxng-client
  */
 
-import type { WebSearchRequest, WebSearchResult, WebSearchSource } from '@deepseek-ai/dsh-web'
+import type { WebSearchRequest, WebSearchResult, WebSearchSource } from '@buddhilive/dsh-web'
 
 export interface SearXNGClientOptions {
   baseURL?: string | undefined

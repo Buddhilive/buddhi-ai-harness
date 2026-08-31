@@ -3,20 +3,20 @@ import { Context } from '@deepseek-ai/cordis'
 import { mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { createUserMessage, ToolCallId  } from '@deepseek-ai/dsh-llm'
+import type { Agent } from '@buddhilive/dsh-agent'
+import { createUserMessage, ToolCallId  } from '@buddhilive/dsh-llm'
 import SessionStore, {
   SESSION_FORMAT_VERSION,
   SessionId,
   type Session,
-} from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import { turnBoundaryProjectionDefinition } from '@deepseek-ai/dsh-agent-loop'
-import JsonlSessionPersistence from '@deepseek-ai/dsh-session-persistence-jsonl'
-import SqliteSessionQueryEngine from '@deepseek-ai/dsh-session-query-sqlite'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import * as ToolSessionQuery from '@deepseek-ai/dsh-tool-session-query'
+} from '@buddhilive/dsh-session'
+import SessionProjectionRegistry from '@buddhilive/dsh-session-projection'
+import { turnBoundaryProjectionDefinition } from '@buddhilive/dsh-agent-loop'
+import JsonlSessionPersistence from '@buddhilive/dsh-session-persistence-jsonl'
+import SqliteSessionQueryEngine from '@buddhilive/dsh-session-query-sqlite'
+import SystemPrompt from '@buddhilive/dsh-system-prompt'
+import ToolRuntime from '@buddhilive/dsh-tools'
+import * as ToolSessionQuery from '@buddhilive/dsh-tool-session-query'
 
 const temporaryDirectories: string[] = []
 const contexts: Context[] = []

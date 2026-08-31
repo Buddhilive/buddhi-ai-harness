@@ -11,18 +11,18 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { Context } from '@deepseek-ai/cordis'
 import Loader from '@deepseek-ai/cordis-plugin-loader'
 import Include from '@deepseek-ai/cordis-plugin-include'
-import LlmRuntime from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import ToolRuntime from '@deepseek-ai/dsh-tools'
-import AgentRegistry, { type Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { remoteErrorOf, type RemoteFailure } from '@deepseek-ai/dsh-typert-protocol'
+import LlmRuntime from '@buddhilive/dsh-llm'
+import SessionStore, { SessionId } from '@buddhilive/dsh-session'
+import SessionProjectionRegistry from '@buddhilive/dsh-session-projection'
+import SystemPrompt from '@buddhilive/dsh-system-prompt'
+import ToolRuntime from '@buddhilive/dsh-tools'
+import AgentRegistry, { type Agent } from '@buddhilive/dsh-agent'
+import AgentLoop from '@buddhilive/dsh-agent-loop'
+import { remoteErrorOf, type RemoteFailure } from '@buddhilive/dsh-typert-protocol'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import AgentPresets, { COMPOSITION_FILE, METADATA_FILE } from '@deepseek-ai/dsh-agent-presets'
-import type { Config } from '@deepseek-ai/dsh-agent-presets'
-import type {} from '@deepseek-ai/dsh-agent-presets/types'
+import AgentPresets, { COMPOSITION_FILE, METADATA_FILE } from '@buddhilive/dsh-agent-presets'
+import type { Config } from '@buddhilive/dsh-agent-presets'
+import type {} from '@buddhilive/dsh-agent-presets/types'
 
 const FIXTURES = join(dirname(fileURLToPath(import.meta.url)), 'fixtures')
 const ROOTS = [
@@ -32,7 +32,7 @@ const ROOTS = [
 // A row naming a package, the way an authored preset's rows do. Health
 // resolves every row it can prove will start, so a path reaching outside the
 // temp preset directory these tests seed would report the composition broken.
-const VALID = '- id: prompt\n  name: \'@deepseek-ai/dsh-system-prompt\'\n'
+const VALID = '- id: prompt\n  name: \'@buddhilive/dsh-system-prompt\'\n'
 
 afterEach(() => vi.restoreAllMocks())
 

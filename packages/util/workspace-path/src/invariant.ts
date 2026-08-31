@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-util-workspace-path`.
- * @module @deepseek-ai/dsh-util-workspace-path/invariant
+ * Package-owned invariant companion for `@buddhilive/dsh-util-workspace-path`.
+ * @module @buddhilive/dsh-util-workspace-path/invariant
  */
 
 /* jscpd:ignore-start */
 import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { InvariantInstaller } from '@buddhilive/dsh-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-util-workspace-path'
+const PACKAGE_NAME = '@buddhilive/dsh-util-workspace-path'
 
 /** Cordis companion plugin name. */
 export const name = 'workspace-path-invariant'

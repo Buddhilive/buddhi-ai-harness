@@ -9,7 +9,7 @@
  * This package owns no concrete id and keeps no runtime identity or mutable
  * state, so independently installed copies produce interchangeable values.
  *
- * @module @deepseek-ai/dsh-brand
+ * @module @buddhilive/dsh-brand
  */
 
 declare const BRAND: unique symbol

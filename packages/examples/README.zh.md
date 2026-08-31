@@ -24,7 +24,7 @@ examples 组提供可复用 agent 主干，供需要具体组合但不想手工�
 
 | 包 | npm 名称 | 角色 |
 |---|---|---|
-| [`agent-spine-demo/`](agent-spine-demo/README.zh.md) | `@deepseek-ai/dsh-agent-spine-demo` | 可挂载、可用自己的 LLM 与执行器配置的工作 agent 核心 |
+| [`agent-spine-demo/`](agent-spine-demo/README.zh.md) | `@buddhilive/dsh-agent-spine-demo` | 可挂载、可用自己的 LLM 与执行器配置的工作 agent 核心 |
 
 `agent-spine-demo` 是共享 agent 核心。产品应用装配位于 [`bundle/`](../bundle/README.zh.md)；这个支持包继续供聚焦测试与自定义组合使用。
 

@@ -3,7 +3,7 @@ description: "The process-local background-job registry for users and maintainer
 kind: "package-reference"
 ---
 
-# @deepseek-ai/dsh-jobs-local
+# @buddhilive/dsh-jobs-local
 
 English | [中文](README.zh.md)
 
@@ -36,14 +36,14 @@ Choose it when jobs should live in the harness process and die with it. Avoid it
 Loading the plugin registers `ctx.jobs`; `maxConcurrentJobsPerOwner` is optional and defaults to `10`.
 
 ```yaml
-- name: '@deepseek-ai/dsh-jobs-local'
+- name: '@buddhilive/dsh-jobs-local'
 ```
 
 | Field | Default | Meaning |
 |---|---|---|
 | `maxConcurrentJobsPerOwner` | `10` | Maximum `running` plus `stopping` jobs per exact owner, or in the shared unowned bucket |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#deepseek-aidsh-jobs-local) is the exhaustive source for the accepted field.
+The generated [configuration catalog](../../../docs/config-catalog.md#buddhilivedsh-jobs-local) is the exhaustive source for the accepted field.
 
 ### What each owner gets
 

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-remotes",
+  "name": "@buddhilive/dsh-api-remotes",
   "description": "Remote BFF assembly for application-selected Host capabilities",
   "version": "0.1.2-alpha.2",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "url": "git+https://github.com/Buddhilive/buddhi-ai-harness.git",
     "directory": "packages/api/remotes"
   },
   "type": "module",
@@ -36,7 +36,7 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-api-gateway"
+        "@buddhilive/dsh-api-gateway"
       ],
       "platform": "web",
       "immediately": true
@@ -55,37 +55,37 @@
     "lib/types/**/*.d.ts"
   ],
   "dependencies": {
-    "@deepseek-ai/dsh-deque": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-util-values": "workspace:^"
+    "@buddhilive/dsh-deque": "workspace:^",
+    "@buddhilive/dsh-session": "workspace:^",
+    "@buddhilive/dsh-util-values": "workspace:^"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-scope": "workspace:^"
+    "@buddhilive/dsh-scope": "workspace:^"
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-agent-presets": "workspace:^",
-    "@deepseek-ai/dsh-api-gateway": "workspace:^",
-    "@deepseek-ai/dsh-api-settings-controller": "workspace:^",
-    "@deepseek-ai/dsh-api-workspace-controller": "workspace:^",
-    "@deepseek-ai/dsh-commands": "workspace:^",
-    "@deepseek-ai/dsh-cordis-host-runner": "workspace:^",
-    "@deepseek-ai/dsh-credentials": "workspace:^",
-    "@deepseek-ai/dsh-file-reference": "workspace:^",
-    "@deepseek-ai/dsh-goal": "workspace:^",
-    "@deepseek-ai/dsh-host-plugin-inventory": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-message-feedback": "workspace:^",
-    "@deepseek-ai/dsh-session-reference": "workspace:^",
-    "@deepseek-ai/dsh-settings": "workspace:^",
-    "@deepseek-ai/dsh-subagent": "workspace:^",
-    "@deepseek-ai/dsh-user-approval": "workspace:^",
-    "@deepseek-ai/dsh-user-questions": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/dsh-scope": "workspace:^",
-    "@deepseek-ai/dsh-api-session-controller": "workspace:^"
+    "@buddhilive/dsh-agent-presets": "workspace:^",
+    "@buddhilive/dsh-api-gateway": "workspace:^",
+    "@buddhilive/dsh-api-settings-controller": "workspace:^",
+    "@buddhilive/dsh-api-workspace-controller": "workspace:^",
+    "@buddhilive/dsh-commands": "workspace:^",
+    "@buddhilive/dsh-cordis-host-runner": "workspace:^",
+    "@buddhilive/dsh-credentials": "workspace:^",
+    "@buddhilive/dsh-file-reference": "workspace:^",
+    "@buddhilive/dsh-goal": "workspace:^",
+    "@buddhilive/dsh-host-plugin-inventory": "workspace:^",
+    "@buddhilive/dsh-invariants": "workspace:^",
+    "@buddhilive/dsh-llm": "workspace:^",
+    "@buddhilive/dsh-message-feedback": "workspace:^",
+    "@buddhilive/dsh-session-reference": "workspace:^",
+    "@buddhilive/dsh-settings": "workspace:^",
+    "@buddhilive/dsh-subagent": "workspace:^",
+    "@buddhilive/dsh-user-approval": "workspace:^",
+    "@buddhilive/dsh-user-questions": "workspace:^",
+    "@buddhilive/dsh-client-connection": "workspace:^",
+    "@buddhilive/dsh-typert-protocol": "workspace:^",
+    "@buddhilive/dsh-scope": "workspace:^",
+    "@buddhilive/dsh-api-session-controller": "workspace:^"
   }
 }

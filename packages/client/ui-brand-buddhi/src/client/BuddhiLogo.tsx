@@ -1,4 +1,5 @@
 import type { ImgHTMLAttributes } from 'react'
+import { en } from './locales.ts'
 
 export interface BuddhiLogoProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'size'> {
   size?: number | undefined
@@ -12,7 +13,7 @@ export function BuddhiLogo({ size = 24, className, style, ...props }: BuddhiLogo
   return (
     <img
       src="/buddhi-logo.png"
-      alt="BuddhiAI"
+      alt={en.markAlt}
       width={size}
       height={size}
       className={className}
